@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LGMResolutionListViewController.h"
+#import "LGMResolutionListViewControllerDelegate.h"
 
-@interface LGMMenuViewController : UIViewController
+@interface LGMMenuViewController : UIViewController <LGMResolutionListViewControllerDelegate>
+
+- (void)showMenuAnimated:(BOOL)animated;
+- (void)presentResolutionListWithType:(LGMResolutionListType)type animated:(BOOL)animated;
 
 @end

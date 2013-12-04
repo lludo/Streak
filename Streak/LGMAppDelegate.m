@@ -8,6 +8,7 @@
 
 #import "LGMAppDelegate.h"
 #import "LGMMenuViewController.h"
+#import "LGMAppearance.h"
 #import "UIColor+Hex.h"
 
 @interface LGMAppDelegate ()
@@ -22,6 +23,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // Load appearance
+    [LGMAppearance loadAppearance];
+    
     // Initialize the window and the menu view controller
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.menuViewController = [[LGMMenuViewController alloc] init];
@@ -29,7 +33,7 @@
     [self.window makeKeyAndVisible];
     
     // Set the tint color
-    self.window.tintColor = [UIColor colorWithHexString:@"#fe5953" alpha:0.f];
+    self.window.tintColor = [UIColor colorWithHexString:@"#fe5953" alpha:1.f];
     
     return YES;
 }

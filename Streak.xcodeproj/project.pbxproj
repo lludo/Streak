@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8288B587184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
+		8288B588184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
+		8288B589184EF11800491AED /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B585184EF11800491AED /* ProximaNova-Light.otf */; };
+		8288B58A184EF11800491AED /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B585184EF11800491AED /* ProximaNova-Light.otf */; };
+		8288B58B184EF11800491AED /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B586184EF11800491AED /* ProximaNova-Regular.otf */; };
+		8288B58C184EF11800491AED /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B586184EF11800491AED /* ProximaNova-Regular.otf */; };
+		8288B590184EF39200491AED /* LGMResolutionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8288B58E184EF39200491AED /* LGMResolutionListViewController.m */; };
+		8288B591184EF39200491AED /* LGMResolutionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8288B58E184EF39200491AED /* LGMResolutionListViewController.m */; };
+		8288B592184EF39200491AED /* LGMResolutionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8288B58F184EF39200491AED /* LGMResolutionListViewController.xib */; };
+		8288B593184EF39200491AED /* LGMResolutionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8288B58F184EF39200491AED /* LGMResolutionListViewController.xib */; };
+		8288B597184F03EE00491AED /* LGMAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8288B596184F03EE00491AED /* LGMAppearance.m */; };
+		8288B598184F03EE00491AED /* LGMAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 8288B596184F03EE00491AED /* LGMAppearance.m */; };
 		829E7C01184EC95E003C23CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829E7C00184EC95E003C23CD /* Foundation.framework */; };
 		829E7C03184EC95E003C23CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829E7C02184EC95E003C23CD /* CoreGraphics.framework */; };
 		829E7C05184EC95E003C23CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829E7C04184EC95E003C23CD /* UIKit.framework */; };
@@ -43,6 +55,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8288B584184EF11800491AED /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
+		8288B585184EF11800491AED /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		8288B586184EF11800491AED /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		8288B58D184EF39200491AED /* LGMResolutionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMResolutionListViewController.h; sourceTree = "<group>"; };
+		8288B58E184EF39200491AED /* LGMResolutionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMResolutionListViewController.m; sourceTree = "<group>"; };
+		8288B58F184EF39200491AED /* LGMResolutionListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMResolutionListViewController.xib; sourceTree = "<group>"; };
+		8288B594184EFB6800491AED /* LGMResolutionListViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMResolutionListViewControllerDelegate.h; sourceTree = "<group>"; };
+		8288B595184F03EE00491AED /* LGMAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMAppearance.h; sourceTree = "<group>"; };
+		8288B596184F03EE00491AED /* LGMAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMAppearance.m; sourceTree = "<group>"; };
 		829E7BFD184EC95E003C23CD /* Streak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		829E7C00184EC95E003C23CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		829E7C02184EC95E003C23CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +148,8 @@
 			children = (
 				829E7C0F184EC95F003C23CD /* LGMAppDelegate.h */,
 				829E7C10184EC95F003C23CD /* LGMAppDelegate.m */,
+				8288B595184F03EE00491AED /* LGMAppearance.h */,
+				8288B596184F03EE00491AED /* LGMAppearance.m */,
 				829E7C46184ECF16003C23CD /* Categories */,
 				829E7C49184ECF16003C23CD /* ViewControllers */,
 				829E7C53184ECFCA003C23CD /* Resources */,
@@ -180,6 +203,10 @@
 				829E7C4A184ECF16003C23CD /* LGMMenuViewController.h */,
 				829E7C4B184ECF16003C23CD /* LGMMenuViewController.m */,
 				829E7C4C184ECF16003C23CD /* LGMMenuViewController.xib */,
+				8288B594184EFB6800491AED /* LGMResolutionListViewControllerDelegate.h */,
+				8288B58D184EF39200491AED /* LGMResolutionListViewController.h */,
+				8288B58E184EF39200491AED /* LGMResolutionListViewController.m */,
+				8288B58F184EF39200491AED /* LGMResolutionListViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,6 +216,9 @@
 			children = (
 				829E7C54184ECFCA003C23CD /* iTunesArtwork */,
 				829E7C55184ECFCA003C23CD /* iTunesArtwork@2x */,
+				8288B584184EF11800491AED /* ProximaNova-Bold.otf */,
+				8288B585184EF11800491AED /* ProximaNova-Light.otf */,
+				8288B586184EF11800491AED /* ProximaNova-Regular.otf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -270,11 +300,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				829E7C58184ECFCA003C23CD /* iTunesArtwork@2x in Resources */,
 				829E7C19184EC95F003C23CD /* Images.xcassets in Resources */,
+				8288B592184EF39200491AED /* LGMResolutionListViewController.xib in Resources */,
 				829E7C51184ECF16003C23CD /* LGMMenuViewController.xib in Resources */,
 				829E7C44184ECED4003C23CD /* InfoPlist.strings in Resources */,
+				8288B589184EF11800491AED /* ProximaNova-Light.otf in Resources */,
+				8288B58B184EF11800491AED /* ProximaNova-Regular.otf in Resources */,
+				8288B587184EF11800491AED /* ProximaNova-Bold.otf in Resources */,
 				829E7C56184ECFCA003C23CD /* iTunesArtwork in Resources */,
+				829E7C58184ECFCA003C23CD /* iTunesArtwork@2x in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,8 +317,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				829E7C59184ECFCA003C23CD /* iTunesArtwork@2x in Resources */,
+				8288B593184EF39200491AED /* LGMResolutionListViewController.xib in Resources */,
+				8288B58C184EF11800491AED /* ProximaNova-Regular.otf in Resources */,
 				829E7C45184ECED4003C23CD /* InfoPlist.strings in Resources */,
 				829E7C52184ECF16003C23CD /* LGMMenuViewController.xib in Resources */,
+				8288B58A184EF11800491AED /* ProximaNova-Light.otf in Resources */,
+				8288B588184EF11800491AED /* ProximaNova-Bold.otf in Resources */,
 				829E7C2A184EC95F003C23CD /* InfoPlist.strings in Resources */,
 				829E7C57184ECFCA003C23CD /* iTunesArtwork in Resources */,
 			);
@@ -297,9 +335,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8288B597184F03EE00491AED /* LGMAppearance.m in Sources */,
 				829E7C0D184EC95F003C23CD /* main.m in Sources */,
 				829E7C4D184ECF16003C23CD /* UIColor+Hex.m in Sources */,
 				829E7C4F184ECF16003C23CD /* LGMMenuViewController.m in Sources */,
+				8288B590184EF39200491AED /* LGMResolutionListViewController.m in Sources */,
 				829E7C11184EC95F003C23CD /* LGMAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,7 +349,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				829E7C50184ECF16003C23CD /* LGMMenuViewController.m in Sources */,
+				8288B591184EF39200491AED /* LGMResolutionListViewController.m in Sources */,
 				829E7C2C184EC95F003C23CD /* StreakTests.m in Sources */,
+				8288B598184F03EE00491AED /* LGMAppearance.m in Sources */,
 				829E7C4E184ECF16003C23CD /* UIColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +537,7 @@
 				829E7C31184EC95F003C23CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		829E7C32184EC95F003C23CD /* Build configuration list for PBXNativeTarget "StreakTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +546,7 @@
 				829E7C34184EC95F003C23CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
