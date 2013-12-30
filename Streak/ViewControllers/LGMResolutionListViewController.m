@@ -7,6 +7,7 @@
 //
 
 #import "LGMResolutionListViewController.h"
+#import "LGMResolutionCreateViewController.h"
 #import "LGMResolutionCell.h"
 
 @interface LGMResolutionListViewController () <UITabBarDelegate, UITableViewDataSource>
@@ -42,10 +43,11 @@
     NSString *menuButtonTitle = [[LGMResolutionListViewController resolutionNameFromType:self.type] uppercaseString];
     UIBarButtonItem *menuButtonItem = [[UIBarButtonItem alloc] initWithTitle:menuButtonTitle style:UIBarButtonItemStyleBordered
                                                                       target:self action:@selector(showMenu:)];
+    menuButtonItem.tintColor = [UIColor darkTextColor];
     self.navigationItem.leftBarButtonItem = menuButtonItem;
     
     // Add resolution button
-    UIImage *resolutionAddImage = [UIImage imageNamed:@"resolution-button-add"];
+    UIImage *resolutionAddImage = [[UIImage imageNamed:@"resolution-button-add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithImage:resolutionAddImage style:UIBarButtonItemStylePlain
                                                                      target:self action:@selector(addResolution:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;
@@ -58,7 +60,9 @@
 }
 
 - (void)addResolution:(id)sender {
-    
+    LGMResolutionCreateViewController *createViewController = [[LGMResolutionCreateViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:createViewController];
+    [self presentViewController:navigationController animated:YES completion:NULL];
 }
 
 - (void)valueChanged:(id)sender {
