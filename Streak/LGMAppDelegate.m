@@ -7,13 +7,13 @@
 //
 
 #import "LGMAppDelegate.h"
-#import "LGMMenuViewController.h"
+#import "LGMNavigationViewController.h"
 #import "LGMAppearance.h"
 #import "UIColor+Hex.h"
 
 @interface LGMAppDelegate ()
 
-@property (nonatomic, strong) LGMMenuViewController *menuViewController;
+@property (nonatomic, strong) LGMNavigationViewController *menuViewController;
 
 @end
 
@@ -28,7 +28,7 @@
     
     // Initialize the window and the menu view controller
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.menuViewController = [[LGMMenuViewController alloc] init];
+    self.menuViewController = [[LGMNavigationViewController alloc] init];
     self.window.rootViewController = self.menuViewController;
     [self.window makeKeyAndVisible];
     

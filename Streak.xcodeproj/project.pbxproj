@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		825CDEC31871DADD00BA8F37 /* LGMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDEC11871DADD00BA8F37 /* LGMSettingsViewController.m */; };
+		825CDEC41871DADD00BA8F37 /* LGMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDEC21871DADD00BA8F37 /* LGMSettingsViewController.xib */; };
 		8288B587184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
 		8288B588184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
 		8288B589184EF11800491AED /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B585184EF11800491AED /* ProximaNova-Light.otf */; };
@@ -34,10 +36,10 @@
 		829E7C45184ECED4003C23CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C43184ECED4003C23CD /* InfoPlist.strings */; };
 		829E7C4D184ECF16003C23CD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E7C48184ECF16003C23CD /* UIColor+Hex.m */; };
 		829E7C4E184ECF16003C23CD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E7C48184ECF16003C23CD /* UIColor+Hex.m */; };
-		829E7C4F184ECF16003C23CD /* LGMMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E7C4B184ECF16003C23CD /* LGMMenuViewController.m */; };
-		829E7C50184ECF16003C23CD /* LGMMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E7C4B184ECF16003C23CD /* LGMMenuViewController.m */; };
-		829E7C51184ECF16003C23CD /* LGMMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C4C184ECF16003C23CD /* LGMMenuViewController.xib */; };
-		829E7C52184ECF16003C23CD /* LGMMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C4C184ECF16003C23CD /* LGMMenuViewController.xib */; };
+		829E7C4F184ECF16003C23CD /* LGMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E7C4B184ECF16003C23CD /* LGMNavigationViewController.m */; };
+		829E7C50184ECF16003C23CD /* LGMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 829E7C4B184ECF16003C23CD /* LGMNavigationViewController.m */; };
+		829E7C51184ECF16003C23CD /* LGMNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C4C184ECF16003C23CD /* LGMNavigationViewController.xib */; };
+		829E7C52184ECF16003C23CD /* LGMNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C4C184ECF16003C23CD /* LGMNavigationViewController.xib */; };
 		829E7C56184ECFCA003C23CD /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C54184ECFCA003C23CD /* iTunesArtwork */; };
 		829E7C57184ECFCA003C23CD /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C54184ECFCA003C23CD /* iTunesArtwork */; };
 		829E7C58184ECFCA003C23CD /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C55184ECFCA003C23CD /* iTunesArtwork@2x */; };
@@ -55,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		825CDEC01871DADD00BA8F37 /* LGMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMSettingsViewController.h; sourceTree = "<group>"; };
+		825CDEC11871DADD00BA8F37 /* LGMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMSettingsViewController.m; sourceTree = "<group>"; };
+		825CDEC21871DADD00BA8F37 /* LGMSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMSettingsViewController.xib; sourceTree = "<group>"; };
 		8288B584184EF11800491AED /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
 		8288B585184EF11800491AED /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		8288B586184EF11800491AED /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
@@ -82,9 +87,9 @@
 		829E7C43184ECED4003C23CD /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		829E7C47184ECF16003C23CD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		829E7C48184ECF16003C23CD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		829E7C4A184ECF16003C23CD /* LGMMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMMenuViewController.h; sourceTree = "<group>"; };
-		829E7C4B184ECF16003C23CD /* LGMMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMMenuViewController.m; sourceTree = "<group>"; };
-		829E7C4C184ECF16003C23CD /* LGMMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMMenuViewController.xib; sourceTree = "<group>"; };
+		829E7C4A184ECF16003C23CD /* LGMNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMNavigationViewController.h; sourceTree = "<group>"; };
+		829E7C4B184ECF16003C23CD /* LGMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMNavigationViewController.m; sourceTree = "<group>"; };
+		829E7C4C184ECF16003C23CD /* LGMNavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMNavigationViewController.xib; sourceTree = "<group>"; };
 		829E7C54184ECFCA003C23CD /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		829E7C55184ECFCA003C23CD /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,13 +205,16 @@
 		829E7C49184ECF16003C23CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				829E7C4A184ECF16003C23CD /* LGMMenuViewController.h */,
-				829E7C4B184ECF16003C23CD /* LGMMenuViewController.m */,
-				829E7C4C184ECF16003C23CD /* LGMMenuViewController.xib */,
+				829E7C4A184ECF16003C23CD /* LGMNavigationViewController.h */,
+				829E7C4B184ECF16003C23CD /* LGMNavigationViewController.m */,
+				829E7C4C184ECF16003C23CD /* LGMNavigationViewController.xib */,
 				8288B594184EFB6800491AED /* LGMResolutionListViewControllerDelegate.h */,
 				8288B58D184EF39200491AED /* LGMResolutionListViewController.h */,
 				8288B58E184EF39200491AED /* LGMResolutionListViewController.m */,
 				8288B58F184EF39200491AED /* LGMResolutionListViewController.xib */,
+				825CDEC01871DADD00BA8F37 /* LGMSettingsViewController.h */,
+				825CDEC11871DADD00BA8F37 /* LGMSettingsViewController.m */,
+				825CDEC21871DADD00BA8F37 /* LGMSettingsViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -302,12 +310,13 @@
 			files = (
 				829E7C19184EC95F003C23CD /* Images.xcassets in Resources */,
 				8288B592184EF39200491AED /* LGMResolutionListViewController.xib in Resources */,
-				829E7C51184ECF16003C23CD /* LGMMenuViewController.xib in Resources */,
+				829E7C51184ECF16003C23CD /* LGMNavigationViewController.xib in Resources */,
 				829E7C44184ECED4003C23CD /* InfoPlist.strings in Resources */,
 				8288B589184EF11800491AED /* ProximaNova-Light.otf in Resources */,
 				8288B58B184EF11800491AED /* ProximaNova-Regular.otf in Resources */,
 				8288B587184EF11800491AED /* ProximaNova-Bold.otf in Resources */,
 				829E7C56184ECFCA003C23CD /* iTunesArtwork in Resources */,
+				825CDEC41871DADD00BA8F37 /* LGMSettingsViewController.xib in Resources */,
 				829E7C58184ECFCA003C23CD /* iTunesArtwork@2x in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +329,7 @@
 				8288B593184EF39200491AED /* LGMResolutionListViewController.xib in Resources */,
 				8288B58C184EF11800491AED /* ProximaNova-Regular.otf in Resources */,
 				829E7C45184ECED4003C23CD /* InfoPlist.strings in Resources */,
-				829E7C52184ECF16003C23CD /* LGMMenuViewController.xib in Resources */,
+				829E7C52184ECF16003C23CD /* LGMNavigationViewController.xib in Resources */,
 				8288B58A184EF11800491AED /* ProximaNova-Light.otf in Resources */,
 				8288B588184EF11800491AED /* ProximaNova-Bold.otf in Resources */,
 				829E7C2A184EC95F003C23CD /* InfoPlist.strings in Resources */,
@@ -336,9 +345,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8288B597184F03EE00491AED /* LGMAppearance.m in Sources */,
+				825CDEC31871DADD00BA8F37 /* LGMSettingsViewController.m in Sources */,
 				829E7C0D184EC95F003C23CD /* main.m in Sources */,
 				829E7C4D184ECF16003C23CD /* UIColor+Hex.m in Sources */,
-				829E7C4F184ECF16003C23CD /* LGMMenuViewController.m in Sources */,
+				829E7C4F184ECF16003C23CD /* LGMNavigationViewController.m in Sources */,
 				8288B590184EF39200491AED /* LGMResolutionListViewController.m in Sources */,
 				829E7C11184EC95F003C23CD /* LGMAppDelegate.m in Sources */,
 			);
@@ -348,7 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				829E7C50184ECF16003C23CD /* LGMMenuViewController.m in Sources */,
+				829E7C50184ECF16003C23CD /* LGMNavigationViewController.m in Sources */,
 				8288B591184EF39200491AED /* LGMResolutionListViewController.m in Sources */,
 				829E7C2C184EC95F003C23CD /* StreakTests.m in Sources */,
 				8288B598184F03EE00491AED /* LGMAppearance.m in Sources */,

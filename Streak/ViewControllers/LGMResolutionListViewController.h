@@ -12,8 +12,7 @@
 typedef NS_ENUM(NSUInteger, LGMResolutionListType) {
     LGMResolutionListTypeDaily = 0,
     LGMResolutionListTypeWeekly,
-    LGMResolutionListTypeMonthly,
-    LGMResolutionListTypeYearly
+    LGMResolutionListTypeMonthly
 };
 
 @interface LGMResolutionListViewController : UIViewController

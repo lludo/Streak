@@ -1,20 +1,21 @@
 //
-//  LGMMenuViewController.m
+//  LGMNavigationViewController.m
 //  Streak
 //
 //  Created by Ludovic Landry on 12/3/13.
 //  Copyright (c) 2013 Little Green Men. All rights reserved.
 //
 
-#import "LGMMenuViewController.h"
+#import "LGMNavigationViewController.h"
+#import "LGMSettingsViewController.h"
 
-@interface LGMMenuViewController ()
+@interface LGMNavigationViewController ()
 
 @property (nonatomic, strong) NSArray *resolutionViewControllerList;
 
 @end
 
-@implementation LGMMenuViewController
+@implementation LGMNavigationViewController
 
 - (id)init {
     self = [super init];
@@ -28,10 +29,7 @@
         LGMResolutionListViewController *resolutionListViewMonthly = [[LGMResolutionListViewController alloc] initWithType:LGMResolutionListTypeMonthly delegate:self];
         UINavigationController *resolutionListMonthlyNav = [[UINavigationController alloc] initWithRootViewController:resolutionListViewMonthly];
         
-        LGMResolutionListViewController *resolutionListViewYearly = [[LGMResolutionListViewController alloc] initWithType:LGMResolutionListTypeYearly delegate:self];
-        UINavigationController *resolutionListYearlyNav = [[UINavigationController alloc] initWithRootViewController:resolutionListViewYearly];
-        
-        _resolutionViewControllerList = @[resolutionListDailyNav, resolutionListWeeklyNav, resolutionListMonthlyNav, resolutionListYearlyNav];
+        _resolutionViewControllerList = @[resolutionListDailyNav, resolutionListWeeklyNav, resolutionListMonthlyNav];
     }
     return self;
 }
@@ -53,8 +51,10 @@
     [self presentResolutionListWithType:LGMResolutionListTypeMonthly animated:YES];
 }
 
-- (IBAction)didSelectYearly:(id)sender {
-    [self presentResolutionListWithType:LGMResolutionListTypeYearly animated:YES];
+- (IBAction)didSelectSettings:(id)sender {
+    LGMSettingsViewController *settingsViewController = [[LGMSettingsViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+    [self presentViewController:navigationController animated:YES completion:NULL];
 }
 
 - (void)presentResolutionListWithType:(LGMResolutionListType)type animated:(BOOL)animated {
