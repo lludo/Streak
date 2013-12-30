@@ -7,10 +7,12 @@
 //
 
 #import "LGMResolutionListViewController.h"
+#import "LGMResolutionCell.h"
 
-@interface LGMResolutionListViewController ()
+@interface LGMResolutionListViewController () <UITabBarDelegate, UITableViewDataSource>
 
 @property (nonatomic, assign) LGMResolutionListType type;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end
 
@@ -37,10 +39,16 @@
     self.navigationItem.titleView = filterSegmentedControl;
     
     // Build the menu button
-    UIBarButtonItem *menuButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
-                                                                       style:UIBarButtonItemStyleBordered
+    NSString *menuButtonTitle = [[LGMResolutionListViewController resolutionNameFromType:self.type] uppercaseString];
+    UIBarButtonItem *menuButtonItem = [[UIBarButtonItem alloc] initWithTitle:menuButtonTitle style:UIBarButtonItemStyleBordered
                                                                       target:self action:@selector(showMenu:)];
     self.navigationItem.leftBarButtonItem = menuButtonItem;
+    
+    // Add resolution button
+    UIImage *resolutionAddImage = [UIImage imageNamed:@"resolution-button-add"];
+    UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithImage:resolutionAddImage style:UIBarButtonItemStylePlain
+                                                                     target:self action:@selector(addResolution:)];
+    self.navigationItem.rightBarButtonItem = addButtonItem;
 }
 
 - (void)showMenu:(id)sender {
@@ -49,9 +57,49 @@
     }
 }
 
+- (void)addResolution:(id)sender {
+    
+}
+
 - (void)valueChanged:(id)sender {
     
     //TODO to finish
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+    LGMResolutionCell *cell = [tableView dequeueReusableCellWithIdentifier:kResolutionCellReusableIdentifier];
+        if (!cell) {
+            UINib *tableViewCellNib = [UINib nibWithNibName:NSStringFromClass([LGMResolutionCell class]) bundle:nil];
+            [self.tableView registerNib:tableViewCellNib forCellReuseIdentifier:kResolutionCellReusableIdentifier];
+            cell = [tableView dequeueReusableCellWithIdentifier:kResolutionCellReusableIdentifier];
+        }
+        
+    //TODO: configure cell here
+    cell.textLabel.text = @"Test";
+    
+    return cell;
+}
+
+#pragma mark - UITableView delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //TODO: manage selection here
+}
+
+
++ (NSString *)resolutionNameFromType:(LGMResolutionListType)type {
+    switch (type) {
+        case LGMResolutionListTypeDaily: return NSLocalizedString(@"Daily", nil); break;
+        case LGMResolutionListTypeWeekly: return NSLocalizedString(@"Weekly", nil); break;
+        case LGMResolutionListTypeMonthly: return NSLocalizedString(@"Monthly", nil); break;
+        default: return nil; break;
+    }
 }
 
 @end

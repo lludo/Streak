@@ -29,9 +29,9 @@
     self.navigationItem.title = NSLocalizedString(@"Settings", nil);
     
     // Build the menu button
-    UIBarButtonItem *menuButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+    UIBarButtonItem *doneButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                     target:self action:@selector(hideSettings:)];
-    self.navigationItem.leftBarButtonItem = menuButtonItem;
+    self.navigationItem.rightBarButtonItem = doneButtonItem;
 }
 
 - (void)hideSettings:(id)sender {

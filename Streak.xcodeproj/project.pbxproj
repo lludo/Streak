@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		825CDEC31871DADD00BA8F37 /* LGMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDEC11871DADD00BA8F37 /* LGMSettingsViewController.m */; };
 		825CDEC41871DADD00BA8F37 /* LGMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDEC21871DADD00BA8F37 /* LGMSettingsViewController.xib */; };
+		825CDEC81871E8C400BA8F37 /* LGMResolutionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDEC71871E8C400BA8F37 /* LGMResolutionCell.m */; };
+		825CDECA1871E8DC00BA8F37 /* LGMResolutionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDEC91871E8DC00BA8F37 /* LGMResolutionCell.xib */; };
 		8288B587184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
 		8288B588184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
 		8288B589184EF11800491AED /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B585184EF11800491AED /* ProximaNova-Light.otf */; };
@@ -60,6 +62,9 @@
 		825CDEC01871DADD00BA8F37 /* LGMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMSettingsViewController.h; sourceTree = "<group>"; };
 		825CDEC11871DADD00BA8F37 /* LGMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMSettingsViewController.m; sourceTree = "<group>"; };
 		825CDEC21871DADD00BA8F37 /* LGMSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMSettingsViewController.xib; sourceTree = "<group>"; };
+		825CDEC61871E8C400BA8F37 /* LGMResolutionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMResolutionCell.h; sourceTree = "<group>"; };
+		825CDEC71871E8C400BA8F37 /* LGMResolutionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMResolutionCell.m; sourceTree = "<group>"; };
+		825CDEC91871E8DC00BA8F37 /* LGMResolutionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMResolutionCell.xib; sourceTree = "<group>"; };
 		8288B584184EF11800491AED /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
 		8288B585184EF11800491AED /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		8288B586184EF11800491AED /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
@@ -118,6 +123,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		825CDEC51871E88900BA8F37 /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				825CDEC61871E8C400BA8F37 /* LGMResolutionCell.h */,
+				825CDEC71871E8C400BA8F37 /* LGMResolutionCell.m */,
+				825CDEC91871E8DC00BA8F37 /* LGMResolutionCell.xib */,
+			);
+			path = ViewCells;
+			sourceTree = "<group>";
+		};
 		829E7BF4184EC95E003C23CD = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +172,7 @@
 				8288B596184F03EE00491AED /* LGMAppearance.m */,
 				829E7C46184ECF16003C23CD /* Categories */,
 				829E7C49184ECF16003C23CD /* ViewControllers */,
+				825CDEC51871E88900BA8F37 /* ViewCells */,
 				829E7C53184ECFCA003C23CD /* Resources */,
 				829E7C07184EC95E003C23CD /* Supporting Files */,
 				829E7C18184EC95F003C23CD /* Images.xcassets */,
@@ -318,6 +334,7 @@
 				829E7C56184ECFCA003C23CD /* iTunesArtwork in Resources */,
 				825CDEC41871DADD00BA8F37 /* LGMSettingsViewController.xib in Resources */,
 				829E7C58184ECFCA003C23CD /* iTunesArtwork@2x in Resources */,
+				825CDECA1871E8DC00BA8F37 /* LGMResolutionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +363,7 @@
 			files = (
 				8288B597184F03EE00491AED /* LGMAppearance.m in Sources */,
 				825CDEC31871DADD00BA8F37 /* LGMSettingsViewController.m in Sources */,
+				825CDEC81871E8C400BA8F37 /* LGMResolutionCell.m in Sources */,
 				829E7C0D184EC95F003C23CD /* main.m in Sources */,
 				829E7C4D184ECF16003C23CD /* UIColor+Hex.m in Sources */,
 				829E7C4F184ECF16003C23CD /* LGMNavigationViewController.m in Sources */,

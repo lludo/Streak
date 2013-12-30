@@ -23,4 +23,6 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListType) {
 
 - (id)initWithType:(LGMResolutionListType)type delegate:(id<LGMResolutionListViewControllerDelegate>)delegate;
 
++ (NSString *)resolutionNameFromType:(LGMResolutionListType)type;
+
 @end
