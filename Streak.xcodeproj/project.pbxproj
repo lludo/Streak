@@ -13,6 +13,15 @@
 		825CDECA1871E8DC00BA8F37 /* LGMResolutionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDEC91871E8DC00BA8F37 /* LGMResolutionCell.xib */; };
 		825CDECE1871EB5900BA8F37 /* LGMResolutionCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDECC1871EB5900BA8F37 /* LGMResolutionCreateViewController.m */; };
 		825CDECF1871EB5900BA8F37 /* LGMResolutionCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDECD1871EB5900BA8F37 /* LGMResolutionCreateViewController.xib */; };
+		825CDED31871F09300BA8F37 /* LGMWalktroughWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDED11871F09300BA8F37 /* LGMWalktroughWelcomeViewController.m */; };
+		825CDED41871F09300BA8F37 /* LGMWalktroughWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDED21871F09300BA8F37 /* LGMWalktroughWelcomeViewController.xib */; };
+		825CDED71872364400BA8F37 /* UIButton+Stretch.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDED61872364400BA8F37 /* UIButton+Stretch.m */; };
+		825CDEDB1872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDED91872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.m */; };
+		825CDEDC1872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDEDA1872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.xib */; };
+		825CDEE0187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDEDE187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.m */; };
+		825CDEE1187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDEDF187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.xib */; };
+		825CDEE5187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDEE3187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.m */; };
+		825CDEE6187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDEE4187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.xib */; };
 		8288B587184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
 		8288B588184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
 		8288B589184EF11800491AED /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B585184EF11800491AED /* ProximaNova-Light.otf */; };
@@ -70,6 +79,20 @@
 		825CDECB1871EB5900BA8F37 /* LGMResolutionCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMResolutionCreateViewController.h; sourceTree = "<group>"; };
 		825CDECC1871EB5900BA8F37 /* LGMResolutionCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMResolutionCreateViewController.m; sourceTree = "<group>"; };
 		825CDECD1871EB5900BA8F37 /* LGMResolutionCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMResolutionCreateViewController.xib; sourceTree = "<group>"; };
+		825CDED01871F09300BA8F37 /* LGMWalktroughWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMWalktroughWelcomeViewController.h; sourceTree = "<group>"; };
+		825CDED11871F09300BA8F37 /* LGMWalktroughWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMWalktroughWelcomeViewController.m; sourceTree = "<group>"; };
+		825CDED21871F09300BA8F37 /* LGMWalktroughWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMWalktroughWelcomeViewController.xib; sourceTree = "<group>"; };
+		825CDED51872364400BA8F37 /* UIButton+Stretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Stretch.h"; sourceTree = "<group>"; };
+		825CDED61872364400BA8F37 /* UIButton+Stretch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Stretch.m"; sourceTree = "<group>"; };
+		825CDED81872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMWalktroughResolutionNameViewController.h; sourceTree = "<group>"; };
+		825CDED91872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMWalktroughResolutionNameViewController.m; sourceTree = "<group>"; };
+		825CDEDA1872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMWalktroughResolutionNameViewController.xib; sourceTree = "<group>"; };
+		825CDEDD187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMWalktroughResolutionCategoryViewController.h; sourceTree = "<group>"; };
+		825CDEDE187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMWalktroughResolutionCategoryViewController.m; sourceTree = "<group>"; };
+		825CDEDF187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMWalktroughResolutionCategoryViewController.xib; sourceTree = "<group>"; };
+		825CDEE2187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMWalktroughResolutionFrequencyViewController.h; sourceTree = "<group>"; };
+		825CDEE3187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMWalktroughResolutionFrequencyViewController.m; sourceTree = "<group>"; };
+		825CDEE4187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMWalktroughResolutionFrequencyViewController.xib; sourceTree = "<group>"; };
 		8288B584184EF11800491AED /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
 		8288B585184EF11800491AED /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		8288B586184EF11800491AED /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
@@ -219,6 +242,8 @@
 			children = (
 				829E7C47184ECF16003C23CD /* UIColor+Hex.h */,
 				829E7C48184ECF16003C23CD /* UIColor+Hex.m */,
+				825CDED51872364400BA8F37 /* UIButton+Stretch.h */,
+				825CDED61872364400BA8F37 /* UIButton+Stretch.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -226,6 +251,18 @@
 		829E7C49184ECF16003C23CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				825CDED01871F09300BA8F37 /* LGMWalktroughWelcomeViewController.h */,
+				825CDED11871F09300BA8F37 /* LGMWalktroughWelcomeViewController.m */,
+				825CDED21871F09300BA8F37 /* LGMWalktroughWelcomeViewController.xib */,
+				825CDED81872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.h */,
+				825CDED91872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.m */,
+				825CDEDA1872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.xib */,
+				825CDEDD187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.h */,
+				825CDEDE187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.m */,
+				825CDEDF187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.xib */,
+				825CDEE2187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.h */,
+				825CDEE3187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.m */,
+				825CDEE4187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.xib */,
 				829E7C4A184ECF16003C23CD /* LGMNavigationViewController.h */,
 				829E7C4B184ECF16003C23CD /* LGMNavigationViewController.m */,
 				829E7C4C184ECF16003C23CD /* LGMNavigationViewController.xib */,
@@ -332,8 +369,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				825CDEE6187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.xib in Resources */,
 				829E7C19184EC95F003C23CD /* Images.xcassets in Resources */,
 				825CDECF1871EB5900BA8F37 /* LGMResolutionCreateViewController.xib in Resources */,
+				825CDEE1187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.xib in Resources */,
 				8288B592184EF39200491AED /* LGMResolutionListViewController.xib in Resources */,
 				829E7C51184ECF16003C23CD /* LGMNavigationViewController.xib in Resources */,
 				829E7C44184ECED4003C23CD /* InfoPlist.strings in Resources */,
@@ -344,6 +383,8 @@
 				825CDEC41871DADD00BA8F37 /* LGMSettingsViewController.xib in Resources */,
 				829E7C58184ECFCA003C23CD /* iTunesArtwork@2x in Resources */,
 				825CDECA1871E8DC00BA8F37 /* LGMResolutionCell.xib in Resources */,
+				825CDEDC1872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.xib in Resources */,
+				825CDED41871F09300BA8F37 /* LGMWalktroughWelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,12 +414,17 @@
 				8288B597184F03EE00491AED /* LGMAppearance.m in Sources */,
 				825CDEC31871DADD00BA8F37 /* LGMSettingsViewController.m in Sources */,
 				825CDECE1871EB5900BA8F37 /* LGMResolutionCreateViewController.m in Sources */,
+				825CDED71872364400BA8F37 /* UIButton+Stretch.m in Sources */,
 				825CDEC81871E8C400BA8F37 /* LGMResolutionCell.m in Sources */,
 				829E7C0D184EC95F003C23CD /* main.m in Sources */,
+				825CDEDB1872478B00BA8F37 /* LGMWalktroughResolutionNameViewController.m in Sources */,
 				829E7C4D184ECF16003C23CD /* UIColor+Hex.m in Sources */,
+				825CDED31871F09300BA8F37 /* LGMWalktroughWelcomeViewController.m in Sources */,
 				829E7C4F184ECF16003C23CD /* LGMNavigationViewController.m in Sources */,
 				8288B590184EF39200491AED /* LGMResolutionListViewController.m in Sources */,
 				829E7C11184EC95F003C23CD /* LGMAppDelegate.m in Sources */,
+				825CDEE5187247C400BA8F37 /* LGMWalktroughResolutionFrequencyViewController.m in Sources */,
+				825CDEE0187247B000BA8F37 /* LGMWalktroughResolutionCategoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
