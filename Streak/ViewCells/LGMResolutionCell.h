@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SWTableViewCell.h>
 
 static NSString * const kResolutionCellReusableIdentifier = @"ResolutionCellReusableIdentifier";
 
-@interface LGMResolutionCell : UITableViewCell
+@interface LGMResolutionCell : SWTableViewCell
 
 @end

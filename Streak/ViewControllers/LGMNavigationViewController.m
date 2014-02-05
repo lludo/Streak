@@ -43,9 +43,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    LGMWalktroughWelcomeViewController *walktroughWelcomeViewController = [[LGMWalktroughWelcomeViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:walktroughWelcomeViewController];
-    [self presentViewController:navigationController animated:YES completion:NULL];
+    //LGMWalktroughWelcomeViewController *walktroughWelcomeViewController = [[LGMWalktroughWelcomeViewController alloc] init];
+    //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:walktroughWelcomeViewController];
+    //[self presentViewController:navigationController animated:YES completion:NULL];
 }
 
 - (IBAction)didSelectDaily:(id)sender {
