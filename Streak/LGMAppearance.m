@@ -12,6 +12,14 @@
 
 + (void)loadAppearance {
     
+    /*
+    Proxima Nova
+        ProximaNova-Regular
+        ProximaNova-Light
+        ProximaNova-Bold
+    */
+    
+    
     // UISegmentedControl
     
     UISegmentedControl *segmentedControlAppearance = [UISegmentedControl appearance];

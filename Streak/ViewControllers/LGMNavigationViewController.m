@@ -8,7 +8,7 @@
 
 #import "LGMNavigationViewController.h"
 #import "LGMSettingsViewController.h"
-#import "LGMWalktroughWelcomeViewController.h"
+#import "LGMWalktroughViewController.h"
 
 @interface LGMNavigationViewController ()
 
@@ -43,9 +43,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    //LGMWalktroughWelcomeViewController *walktroughWelcomeViewController = [[LGMWalktroughWelcomeViewController alloc] init];
-    //UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:walktroughWelcomeViewController];
-    //[self presentViewController:navigationController animated:YES completion:NULL];
+    LGMWalktroughViewController *walktroughViewController = [[LGMWalktroughViewController alloc] init];
+    [self presentViewController:walktroughViewController animated:NO completion:NULL];
 }
 
 - (IBAction)didSelectDaily:(id)sender {
