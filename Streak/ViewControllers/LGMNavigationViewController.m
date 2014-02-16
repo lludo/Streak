@@ -9,6 +9,7 @@
 #import "LGMNavigationViewController.h"
 #import "LGMSettingsViewController.h"
 #import "LGMWalktroughViewController.h"
+#import "LGMDocumentManager.h"
 
 @interface LGMNavigationViewController ()
 
@@ -43,8 +44,19 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    LGMWalktroughViewController *walktroughViewController = [[LGMWalktroughViewController alloc] init];
-    [self presentViewController:walktroughViewController animated:NO completion:NULL];
+    
+    // Present the walktrough if the database contains no resolutions
+    
+    NSManagedObjectContext *managedObjectContext = [LGMDocumentManager sharedDocument].managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resolution"];
+    [request setIncludesSubentities:NO];
+    
+    NSError *error;
+    NSUInteger count = [managedObjectContext countForFetchRequest:request error:&error];
+    if (count == 0) {
+        LGMWalktroughViewController *walktroughViewController = [[LGMWalktroughViewController alloc] init];
+        [self presentViewController:walktroughViewController animated:NO completion:NULL];
+    }
 }
 
 - (IBAction)didSelectDaily:(id)sender {

@@ -28,9 +28,6 @@
     // Load appearance
     [LGMAppearance loadAppearance];
     
-    // Set the tint color
-    self.window.tintColor = [UIColor colorWithHexString:@"#fe5953" alpha:1.f];
-    
     // Setup the model
     [self setupDataModel];
     
@@ -39,6 +36,9 @@
     self.menuViewController = [[LGMNavigationViewController alloc] init];
     self.window.rootViewController = self.menuViewController;
     [self.window makeKeyAndVisible];
+    
+    // Set the tint color
+    self.window.tintColor = [UIColor colorWithHexString:@"#fe5953" alpha:1.f];
     
     return YES;
 }
@@ -74,8 +74,11 @@
     // Test if the categories have already been initialized in the model
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
-    NSArray *categories = [managedObjectContext executeFetchRequest:request error:NULL];
-    if ([categories count] != 0) {
+    [request setIncludesSubentities:NO];
+    
+    NSError *error;
+    NSUInteger count = [managedObjectContext countForFetchRequest:request error:&error];
+    if (count != 0) {
         return;
     }
     

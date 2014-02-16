@@ -415,6 +415,8 @@
     resolution.category = self.selectedCategory;
     resolution.frequency = self.frequency;
     
+    [[LGMDocumentManager sharedDocument] save];
+    
     
     // Dismiss the walkthrough
     
