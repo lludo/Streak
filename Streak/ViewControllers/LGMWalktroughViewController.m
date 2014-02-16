@@ -7,8 +7,10 @@
 //
 
 #import "LGMWalktroughViewController.h"
+#import "LGMDocumentManager.h"
 #import "LGMCategoryCell.h"
 #import "LGMCategory.h"
+#import "LGMResolution.h"
 
 @interface LGMWalktroughViewController () <UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -95,19 +97,10 @@
     [self.categoryCollectionView setCollectionViewLayout:flowLayout];
     [self.categoryCollectionView registerNib:[UINib nibWithNibName:@"LGMCategoryCell" bundle:nil] forCellWithReuseIdentifier:@"kCategoryCellReuseIdentifier"];
     
-    self.categories = @[
-        [[LGMCategory alloc] initWithName:@"Business"],
-        [[LGMCategory alloc] initWithName:@"Challenge"],
-        [[LGMCategory alloc] initWithName:@"Entertainment"],
-        [[LGMCategory alloc] initWithName:@"Finance"],
-        [[LGMCategory alloc] initWithName:@"Food Drink"],
-        [[LGMCategory alloc] initWithName:@"Health"],
-        [[LGMCategory alloc] initWithName:@"Misc"],
-        [[LGMCategory alloc] initWithName:@"Productivity"],
-        [[LGMCategory alloc] initWithName:@"Social"],
-        [[LGMCategory alloc] initWithName:@"Sport"],
-        [[LGMCategory alloc] initWithName:@"Travel"]
-    ];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
+    NSManagedObjectContext *managedObjectContext = [LGMDocumentManager sharedDocument].managedObjectContext;
+    self.categories = [managedObjectContext executeFetchRequest:request error:NULL];
     
     [self.categoryCollectionView reloadData];
     
@@ -290,7 +283,7 @@
     
     BOOL isSelected = (self.selectedCategory == category);
     
-    cell.categoryNameLabel.text = category.name;
+    cell.categoryNameLabel.text = category.title;
     cell.categoryNameLabel.font = [UIFont streakRegularFontOfSize:16.0];
     cell.categoryImageView.image = [category iconWalkthroughPressed:isSelected];
     
@@ -411,6 +404,20 @@
 }
 
 - (IBAction)finish:(id)sender {
+    
+    // Create the resolution
+    
+    NSManagedObjectContext *managedObjectContext = [LGMDocumentManager sharedDocument].managedObjectContext;
+    LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution"
+                                                              inManagedObjectContext:managedObjectContext];
+    resolution.identifier= [[NSUUID UUID] UUIDString];
+    resolution.title = self.resolutionName;
+    resolution.category = self.selectedCategory;
+    resolution.frequency = self.frequency;
+    
+    
+    // Dismiss the walkthrough
+    
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

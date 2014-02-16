@@ -51,14 +51,20 @@
 		829E7C57184ECFCA003C23CD /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C54184ECFCA003C23CD /* iTunesArtwork */; };
 		829E7C58184ECFCA003C23CD /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C55184ECFCA003C23CD /* iTunesArtwork@2x */; };
 		829E7C59184ECFCA003C23CD /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 829E7C55184ECFCA003C23CD /* iTunesArtwork@2x */; };
+		829F0B0D18B04527006B925C /* LGMDocumentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 829F0B0C18B04527006B925C /* LGMDocumentManager.m */; };
+		829F0B0E18B04527006B925C /* LGMDocumentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 829F0B0C18B04527006B925C /* LGMDocumentManager.m */; };
+		829F0B1118B0456A006B925C /* StreakModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 829F0B0F18B0456A006B925C /* StreakModel.xcdatamodeld */; };
+		829F0B1218B0456A006B925C /* StreakModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 829F0B0F18B0456A006B925C /* StreakModel.xcdatamodeld */; };
+		829F0B1D18B049B7006B925C /* LGMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 829F0B1C18B049B7006B925C /* LGMCategory.m */; };
+		829F0B1E18B049B7006B925C /* LGMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 829F0B1C18B049B7006B925C /* LGMCategory.m */; };
+		829F0B2118B049B7006B925C /* LGMResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 829F0B2018B049B7006B925C /* LGMResolution.m */; };
+		829F0B2218B049B7006B925C /* LGMResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 829F0B2018B049B7006B925C /* LGMResolution.m */; };
 		82DD611E18A83BBF0036D99E /* UIFont+Streak.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DD611D18A83BBF0036D99E /* UIFont+Streak.m */; };
 		82DD611F18A83BBF0036D99E /* UIFont+Streak.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DD611D18A83BBF0036D99E /* UIFont+Streak.m */; };
 		82DD612218A85EEB0036D99E /* LGMCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DD612118A85EEB0036D99E /* LGMCategoryCell.m */; };
 		82DD612318A85EEB0036D99E /* LGMCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DD612118A85EEB0036D99E /* LGMCategoryCell.m */; };
 		82DD612518A85F060036D99E /* LGMCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82DD612418A85F060036D99E /* LGMCategoryCell.xib */; };
 		82DD612618A85F060036D99E /* LGMCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82DD612418A85F060036D99E /* LGMCategoryCell.xib */; };
-		82DD612A18A8620F0036D99E /* LGMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DD612918A8620F0036D99E /* LGMCategory.m */; };
-		82DD612B18A8620F0036D99E /* LGMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DD612918A8620F0036D99E /* LGMCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,13 +124,20 @@
 		829E7C4C184ECF16003C23CD /* LGMNavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMNavigationViewController.xib; sourceTree = "<group>"; };
 		829E7C54184ECFCA003C23CD /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		829E7C55184ECFCA003C23CD /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		829F0B0818B04444006B925C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		829F0B0918B04444006B925C /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		829F0B0B18B04527006B925C /* LGMDocumentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMDocumentManager.h; sourceTree = "<group>"; };
+		829F0B0C18B04527006B925C /* LGMDocumentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMDocumentManager.m; sourceTree = "<group>"; };
+		829F0B1018B0456A006B925C /* StreakModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StreakModel.xcdatamodel; sourceTree = "<group>"; };
+		829F0B1B18B049B7006B925C /* LGMCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMCategory.h; sourceTree = "<group>"; };
+		829F0B1C18B049B7006B925C /* LGMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMCategory.m; sourceTree = "<group>"; };
+		829F0B1F18B049B7006B925C /* LGMResolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMResolution.h; sourceTree = "<group>"; };
+		829F0B2018B049B7006B925C /* LGMResolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMResolution.m; sourceTree = "<group>"; };
 		82DD611C18A83BBF0036D99E /* UIFont+Streak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Streak.h"; sourceTree = "<group>"; };
 		82DD611D18A83BBF0036D99E /* UIFont+Streak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Streak.m"; sourceTree = "<group>"; };
 		82DD612018A85EEB0036D99E /* LGMCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMCategoryCell.h; sourceTree = "<group>"; };
 		82DD612118A85EEB0036D99E /* LGMCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMCategoryCell.m; sourceTree = "<group>"; };
 		82DD612418A85F060036D99E /* LGMCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMCategoryCell.xib; sourceTree = "<group>"; };
-		82DD612818A8620F0036D99E /* LGMCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMCategory.h; sourceTree = "<group>"; };
-		82DD612918A8620F0036D99E /* LGMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMCategory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +218,7 @@
 				8288B595184F03EE00491AED /* LGMAppearance.h */,
 				8288B596184F03EE00491AED /* LGMAppearance.m */,
 				829E7C46184ECF16003C23CD /* Categories */,
+				829F0B0A18B04527006B925C /* Managers */,
 				82DD612718A861FF0036D99E /* Model */,
 				829E7C49184ECF16003C23CD /* ViewControllers */,
 				825CDEC51871E88900BA8F37 /* ViewCells */,
@@ -222,6 +236,8 @@
 				829E7C43184ECED4003C23CD /* InfoPlist.strings */,
 				829E7C0C184EC95F003C23CD /* main.m */,
 				829E7C0E184EC95F003C23CD /* Streak-Prefix.pch */,
+				829F0B0818B04444006B925C /* iTunesArtwork */,
+				829F0B0918B04444006B925C /* iTunesArtwork@2x */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -290,11 +306,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		829F0B0A18B04527006B925C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				829F0B0B18B04527006B925C /* LGMDocumentManager.h */,
+				829F0B0C18B04527006B925C /* LGMDocumentManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		82DD612718A861FF0036D99E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				82DD612818A8620F0036D99E /* LGMCategory.h */,
-				82DD612918A8620F0036D99E /* LGMCategory.m */,
+				829F0B0F18B0456A006B925C /* StreakModel.xcdatamodeld */,
+				829F0B1B18B049B7006B925C /* LGMCategory.h */,
+				829F0B1C18B049B7006B925C /* LGMCategory.m */,
+				829F0B1F18B049B7006B925C /* LGMResolution.h */,
+				829F0B2018B049B7006B925C /* LGMResolution.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,14 +484,17 @@
 				8288B597184F03EE00491AED /* LGMAppearance.m in Sources */,
 				82DD612218A85EEB0036D99E /* LGMCategoryCell.m in Sources */,
 				825CDEC31871DADD00BA8F37 /* LGMSettingsViewController.m in Sources */,
-				82DD612A18A8620F0036D99E /* LGMCategory.m in Sources */,
+				829F0B1118B0456A006B925C /* StreakModel.xcdatamodeld in Sources */,
+				829F0B1D18B049B7006B925C /* LGMCategory.m in Sources */,
 				825CDECE1871EB5900BA8F37 /* LGMResolutionCreateViewController.m in Sources */,
 				825CDEC81871E8C400BA8F37 /* LGMResolutionCell.m in Sources */,
 				829E7C0D184EC95F003C23CD /* main.m in Sources */,
 				829E7C4D184ECF16003C23CD /* UIColor+Hex.m in Sources */,
 				825CDED31871F09300BA8F37 /* LGMWalktroughViewController.m in Sources */,
 				829E7C4F184ECF16003C23CD /* LGMNavigationViewController.m in Sources */,
+				829F0B2118B049B7006B925C /* LGMResolution.m in Sources */,
 				8288B590184EF39200491AED /* LGMResolutionListViewController.m in Sources */,
+				829F0B0D18B04527006B925C /* LGMDocumentManager.m in Sources */,
 				829E7C11184EC95F003C23CD /* LGMAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,8 +508,11 @@
 				829E7C2C184EC95F003C23CD /* StreakTests.m in Sources */,
 				8288B598184F03EE00491AED /* LGMAppearance.m in Sources */,
 				82DD611F18A83BBF0036D99E /* UIFont+Streak.m in Sources */,
+				829F0B1218B0456A006B925C /* StreakModel.xcdatamodeld in Sources */,
+				829F0B0E18B04527006B925C /* LGMDocumentManager.m in Sources */,
 				82DD612318A85EEB0036D99E /* LGMCategoryCell.m in Sources */,
-				82DD612B18A8620F0036D99E /* LGMCategory.m in Sources */,
+				829F0B1E18B049B7006B925C /* LGMCategory.m in Sources */,
+				829F0B2218B049B7006B925C /* LGMResolution.m in Sources */,
 				829E7C4E184ECF16003C23CD /* UIColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,6 +712,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		829F0B0F18B0456A006B925C /* StreakModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				829F0B1018B0456A006B925C /* StreakModel.xcdatamodel */,
+			);
+			currentVersion = 829F0B1018B0456A006B925C /* StreakModel.xcdatamodel */;
+			path = StreakModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 829E7BF5184EC95E003C23CD /* Project object */;
 }

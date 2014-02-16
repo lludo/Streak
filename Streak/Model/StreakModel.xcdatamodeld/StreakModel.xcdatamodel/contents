@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Category" representedClassName="LGMCategory" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="resolutionSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Resolution" inverseName="category" inverseEntity="Resolution" syncable="YES"/>
+    </entity>
+    <entity name="Resolution" representedClassName="LGMResolution" syncable="YES">
+        <attribute name="frequency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="resolutionSet" inverseEntity="Category" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Category" positionX="160" positionY="192" width="128" height="88"/>
+        <element name="Resolution" positionX="430" positionY="252" width="128" height="88"/>
+    </elements>
+</model>
