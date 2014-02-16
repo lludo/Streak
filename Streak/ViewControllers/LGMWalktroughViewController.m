@@ -73,16 +73,16 @@
     
     self.resolutionNameTitleLabel.font = [UIFont streakLightFontOfSize:23.0];
     self.resolutionNameTextField.font = [UIFont streakLightFontOfSize:23.0];
-    self.resolutionChooseNameButton.titleLabel.font = [UIFont streakRegularFontOfSize:14.0];
+    self.resolutionChooseNameButton.titleLabel.font = [UIFont streakRegularFontOfSize:18.0];
     
     self.resolutionCategoryTitleLabel.font = [UIFont streakLightFontOfSize:23.0];
-    self.resolutionChooseCategoryButton.titleLabel.font = [UIFont streakRegularFontOfSize:14.0];
+    self.resolutionChooseCategoryButton.titleLabel.font = [UIFont streakRegularFontOfSize:18.0];
     
     self.resolutionFrequencyTitleLabel.font = [UIFont streakLightFontOfSize:23.0];
-    self.resolutionFrequencyDailyButton.titleLabel.font = [UIFont streakRegularFontOfSize:14.0];
-    self.resolutionFrequencyWeeklyButton.titleLabel.font = [UIFont streakRegularFontOfSize:14.0];
-    self.resolutionFrequencyMonthlyButton.titleLabel.font = [UIFont streakRegularFontOfSize:14.0];
-    self.resolutionFinishButton.titleLabel.font = [UIFont streakRegularFontOfSize:14.0];
+    self.resolutionFrequencyDailyButton.titleLabel.font = [UIFont streakRegularFontOfSize:18.0];
+    self.resolutionFrequencyWeeklyButton.titleLabel.font = [UIFont streakRegularFontOfSize:18.0];
+    self.resolutionFrequencyMonthlyButton.titleLabel.font = [UIFont streakRegularFontOfSize:18.0];
+    self.resolutionFinishButton.titleLabel.font = [UIFont streakRegularFontOfSize:18.0];
     
     
     // Configure category list
@@ -185,7 +185,6 @@
     self.resolutionChooseNameButton.alpha = 0.0;
     self.resolutionNameTitleLabel.transform = CGAffineTransformMakeTranslation(100, 0);
     self.resolutionNameTextField.transform = CGAffineTransformMakeTranslation(100, 0);
-    self.resolutionChooseNameButton.transform = CGAffineTransformMakeTranslation(100, 0);
     [self.view addSubview:self.resolutionNameContainerView];
     
     [UIView animateWithDuration:0.6 delay:0.5 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -195,12 +194,8 @@
     [UIView animateWithDuration:0.6 delay:0.6 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.resolutionNameTextField.alpha = 1.0;
         self.resolutionNameTextField.transform = CGAffineTransformIdentity;
-    } completion:NULL];
-    [UIView animateWithDuration:0.6 delay:0.8 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.resolutionChooseNameButton.alpha = 1.0;
-        self.resolutionChooseNameButton.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        [self.resolutionNameTextField performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.3];
+        [self.resolutionNameTextField performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.1];
     }];
 }
 
@@ -235,7 +230,10 @@
 
 - (IBAction)textFieldDidChange:(id)sender {
     BOOL isEmpty = [self.resolutionNameTextField.text length] == 0;
-    self.resolutionChooseNameButton.enabled = !isEmpty;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.resolutionChooseNameButton.alpha = (!isEmpty) ? 1 : 0;
+    }];
 }
 
 - (IBAction)chooseName:(id)sender {
@@ -264,7 +262,6 @@
     self.resolutionChooseCategoryButton.alpha = 0.0;
     self.resolutionCategoryTitleLabel.transform = CGAffineTransformMakeTranslation(100, 0);
     self.categoryCollectionView.transform = CGAffineTransformMakeTranslation(100, 0);
-    self.resolutionChooseCategoryButton.transform = CGAffineTransformMakeTranslation(100, 0);
     [self.view addSubview:self.resolutionCategoryContainerView];
     
     [UIView animateWithDuration:0.6 delay:0.5 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -274,10 +271,6 @@
     [UIView animateWithDuration:0.6 delay:0.6 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.categoryCollectionView.alpha = 1.0;
         self.categoryCollectionView.transform = CGAffineTransformIdentity;
-    } completion:NULL];
-    [UIView animateWithDuration:0.6 delay:0.8 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.resolutionChooseCategoryButton.alpha = 1.0;
-        self.resolutionChooseCategoryButton.transform = CGAffineTransformIdentity;
     } completion:NULL];
 }
 
@@ -313,7 +306,9 @@
 }
 
 - (void)refreshCategoryButtonsState {
-    self.resolutionChooseCategoryButton.enabled = (self.selectedCategory != nil);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.resolutionChooseCategoryButton.alpha = (self.selectedCategory != nil) ? 1 : 0;
+    }];
 }
 
 - (IBAction)chooseCategory:(id)sender {
@@ -345,7 +340,6 @@
     self.resolutionFrequencyDailyButton.transform = CGAffineTransformMakeTranslation(100, 0);
     self.resolutionFrequencyWeeklyButton.transform = CGAffineTransformMakeTranslation(100, 0);
     self.resolutionFrequencyMonthlyButton.transform = CGAffineTransformMakeTranslation(100, 0);
-    self.resolutionFinishButton.transform = CGAffineTransformMakeTranslation(100, 0);
     [self.view addSubview:self.resolutionFrequencyContainerView];
     
     [UIView animateWithDuration:0.6 delay:0.5 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -363,10 +357,6 @@
     [UIView animateWithDuration:0.6 delay:0.60 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.resolutionFrequencyMonthlyButton.alpha = 1.0;
         self.resolutionFrequencyMonthlyButton.transform = CGAffineTransformIdentity;
-    } completion:NULL];
-    [UIView animateWithDuration:0.6 delay:0.9 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.resolutionFinishButton.alpha = 1.0;
-        self.resolutionFinishButton.transform = CGAffineTransformIdentity;
     } completion:NULL];
 }
 
@@ -415,7 +405,9 @@
 }
 
 - (void)refreshFinishButtonState {
-    self.resolutionFinishButton.enabled = (self.frequency != nil);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.resolutionFinishButton.alpha = (self.frequency != nil) ? 1 : 0;
+    }];
 }
 
 - (IBAction)finish:(id)sender {
