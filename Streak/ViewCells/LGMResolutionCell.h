@@ -11,6 +11,10 @@
 
 static NSString * const kResolutionCellReusableIdentifier = @"ResolutionCellReusableIdentifier";
 
-@interface LGMResolutionCell : SWTableViewCell
+@interface LGMResolutionCell : UITableViewCell //SWTableViewCell
+
+@property (nonatomic, strong) IBOutlet UIImageView *categoryIcon;
+@property (nonatomic, strong) IBOutlet UILabel *resolutionTitle;
+@property (nonatomic, strong) IBOutlet UILabel *resolutionStreak;
 
 @end

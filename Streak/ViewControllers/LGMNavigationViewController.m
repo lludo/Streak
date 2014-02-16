@@ -22,13 +22,13 @@
 - (id)init {
     self = [super init];
     if (self) {
-        LGMResolutionListViewController *resolutionListDaily = [[LGMResolutionListViewController alloc] initWithType:LGMResolutionListTypeDaily delegate:self];
+        LGMResolutionListViewController *resolutionListDaily = [[LGMResolutionListViewController alloc] initWithFrequency:LGMResolutionFrequencyDaily delegate:self];
         UINavigationController *resolutionListDailyNav = [[UINavigationController alloc] initWithRootViewController:resolutionListDaily];
         
-        LGMResolutionListViewController *resolutionListViewWeekly = [[LGMResolutionListViewController alloc] initWithType:LGMResolutionListTypeWeekly delegate:self];
+        LGMResolutionListViewController *resolutionListViewWeekly = [[LGMResolutionListViewController alloc] initWithFrequency:LGMResolutionFrequencyWeekly delegate:self];
         UINavigationController *resolutionListWeeklyNav = [[UINavigationController alloc] initWithRootViewController:resolutionListViewWeekly];
         
-        LGMResolutionListViewController *resolutionListViewMonthly = [[LGMResolutionListViewController alloc] initWithType:LGMResolutionListTypeMonthly delegate:self];
+        LGMResolutionListViewController *resolutionListViewMonthly = [[LGMResolutionListViewController alloc] initWithFrequency:LGMResolutionFrequencyMonthly delegate:self];
         UINavigationController *resolutionListMonthlyNav = [[UINavigationController alloc] initWithRootViewController:resolutionListViewMonthly];
         
         _resolutionViewControllerList = @[resolutionListDailyNav, resolutionListWeeklyNav, resolutionListMonthlyNav];
@@ -60,15 +60,15 @@
 }
 
 - (IBAction)didSelectDaily:(id)sender {
-    [self presentResolutionListWithType:LGMResolutionListTypeDaily animated:YES];
+    [self presentResolutionListWithFrequency:LGMResolutionFrequencyDaily animated:YES];
 }
 
 - (IBAction)didSelectWeekly:(id)sender {
-    [self presentResolutionListWithType:LGMResolutionListTypeWeekly animated:YES];
+    [self presentResolutionListWithFrequency:LGMResolutionFrequencyWeekly animated:YES];
 }
 
 - (IBAction)didSelectMonthly:(id)sender {
-    [self presentResolutionListWithType:LGMResolutionListTypeMonthly animated:YES];
+    [self presentResolutionListWithFrequency:LGMResolutionFrequencyMonthly animated:YES];
 }
 
 - (IBAction)didSelectSettings:(id)sender {
@@ -77,7 +77,7 @@
     [self presentViewController:navigationController animated:YES completion:NULL];
 }
 
-- (void)presentResolutionListWithType:(LGMResolutionListType)type animated:(BOOL)animated {
+- (void)presentResolutionListWithFrequency:(LGMResolutionFrequency)type animated:(BOOL)animated {
     
     //TODO: temporary
     UIViewController *viewController = [_resolutionViewControllerList objectAtIndex:type];

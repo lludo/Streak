@@ -8,21 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "LGMResolutionListViewControllerDelegate.h"
-
-typedef NS_ENUM(NSUInteger, LGMResolutionListType) {
-    LGMResolutionListTypeDaily = 0,
-    LGMResolutionListTypeWeekly,
-    LGMResolutionListTypeMonthly
-};
+#import "LGMResolution.h"
 
 @interface LGMResolutionListViewController : UIViewController
 
 @property (nonatomic, strong) id<LGMResolutionListViewControllerDelegate> delegate;
 
-@property (nonatomic, assign, readonly) LGMResolutionListType type;
+@property (nonatomic, assign, readonly) LGMResolutionFrequency frequency;
 
-- (id)initWithType:(LGMResolutionListType)type delegate:(id<LGMResolutionListViewControllerDelegate>)delegate;
-
-+ (NSString *)resolutionNameFromType:(LGMResolutionListType)type;
+- (id)initWithFrequency:(LGMResolutionFrequency)frequency delegate:(id<LGMResolutionListViewControllerDelegate>)delegate;
 
 @end

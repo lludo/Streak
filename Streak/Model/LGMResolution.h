@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+typedef NS_ENUM(NSUInteger, LGMResolutionFrequency) {
+    LGMResolutionFrequencyDaily = 0,
+    LGMResolutionFrequencyWeekly,
+    LGMResolutionFrequencyMonthly
+};
+
 @class LGMCategory;
 
 @interface LGMResolution : NSManagedObject
@@ -16,6 +22,9 @@
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) LGMCategory *category;
-@property (nonatomic, strong) NSString *frequency;
+@property (nonatomic, strong) NSNumber *frequency;
+@property (nonatomic, strong) NSNumber *streak;
+
++ (NSString *)frequencyNameFromFrequency:(LGMResolutionFrequency)frequency;
 
 @end

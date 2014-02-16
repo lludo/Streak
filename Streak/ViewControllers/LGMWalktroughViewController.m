@@ -44,7 +44,7 @@
 
 @property (nonatomic, strong) NSString *resolutionName;
 @property (nonatomic, strong) LGMCategory *selectedCategory;
-@property (nonatomic, strong) NSString *frequency;
+@property (nonatomic, strong) NSNumber *frequency;
 
 @end
 
@@ -230,6 +230,7 @@
 }
 
 - (IBAction)chooseName:(id)sender {
+    self.resolutionName = self.resolutionNameTextField.text;
     
     // Transitions out
     
@@ -356,44 +357,54 @@
 #pragma mark Resolution Frequency View
 
 - (IBAction)chooseDailyButton:(id)sender {
-    self.frequency = @"daily";
+    self.frequency = @(LGMResolutionFrequencyDaily);
     [self refreshFrequencyButtonsState];
     [self refreshFinishButtonState];
 }
 
 - (IBAction)chooseWeeklyButton:(id)sender {
-    self.frequency = @"weekly";
+    self.frequency = @(LGMResolutionFrequencyWeekly);
     [self refreshFrequencyButtonsState];
     [self refreshFinishButtonState];
 }
 
 - (IBAction)chooseMonthlyButton:(id)sender {
-    self.frequency = @"monthly";
+    self.frequency = @(LGMResolutionFrequencyMonthly);
     [self refreshFrequencyButtonsState];
     [self refreshFinishButtonState];
 }
 
-- (void)setFrequency:(NSString *)frequency {
-    _frequency = ([_frequency isEqualToString:frequency]) ? nil : frequency;
+- (void)setFrequency:(NSNumber *)frequency {
+    _frequency = ([_frequency isEqualToNumber:frequency]) ? nil : frequency;
 }
 
 - (void)refreshFrequencyButtonsState {
-    if ([self.frequency isEqualToString:@"daily"]) {
-        self.resolutionFrequencyDailyButton.selected = YES;
-        self.resolutionFrequencyWeeklyButton.selected = NO;
-        self.resolutionFrequencyMonthlyButton.selected = NO;
-    } else if ([self.frequency isEqualToString:@"weekly"]) {
-        self.resolutionFrequencyDailyButton.selected = NO;
-        self.resolutionFrequencyWeeklyButton.selected = YES;
-        self.resolutionFrequencyMonthlyButton.selected = NO;
-    } else if ([self.frequency isEqualToString:@"monthly"]) {
-        self.resolutionFrequencyDailyButton.selected = NO;
-        self.resolutionFrequencyWeeklyButton.selected = NO;
-        self.resolutionFrequencyMonthlyButton.selected = YES;
-    } else {
-        self.resolutionFrequencyDailyButton.selected = NO;
-        self.resolutionFrequencyWeeklyButton.selected = NO;
-        self.resolutionFrequencyMonthlyButton.selected = NO;
+    NSUInteger frequencyScalar = [self.frequency integerValue];
+    switch (frequencyScalar) {
+        case LGMResolutionFrequencyDaily: {
+            self.resolutionFrequencyDailyButton.selected = YES;
+            self.resolutionFrequencyWeeklyButton.selected = NO;
+            self.resolutionFrequencyMonthlyButton.selected = NO;
+            break;
+        }
+        case LGMResolutionFrequencyWeekly: {
+            self.resolutionFrequencyDailyButton.selected = NO;
+            self.resolutionFrequencyWeeklyButton.selected = YES;
+            self.resolutionFrequencyMonthlyButton.selected = NO;
+            break;
+        }
+        case LGMResolutionFrequencyMonthly: {
+            self.resolutionFrequencyDailyButton.selected = NO;
+            self.resolutionFrequencyWeeklyButton.selected = NO;
+            self.resolutionFrequencyMonthlyButton.selected = YES;
+            break;
+        }
+        default: {
+            self.resolutionFrequencyDailyButton.selected = NO;
+            self.resolutionFrequencyWeeklyButton.selected = NO;
+            self.resolutionFrequencyMonthlyButton.selected = NO;
+            break;
+        }
     }
 }
 
@@ -414,6 +425,7 @@
     resolution.title = self.resolutionName;
     resolution.category = self.selectedCategory;
     resolution.frequency = self.frequency;
+    resolution.streak = @(0);
     
     [[LGMDocumentManager sharedDocument] save];
     

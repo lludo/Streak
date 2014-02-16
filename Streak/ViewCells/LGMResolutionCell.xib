@@ -12,7 +12,34 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="exO-VA-zMm" id="jxP-XS-lrP">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resolution title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYQ-WJ-H4I">
+                        <rect key="frame" x="70" y="26" width="204" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wck-i2-j38">
+                        <rect key="frame" x="282" y="26" width="18" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_travel_small_grey" translatesAutoresizingMaskIntoConstraints="NO" id="C3v-3H-xf4">
+                        <rect key="frame" x="19" y="19" width="36" height="35"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="categoryIcon" destination="C3v-3H-xf4" id="eWM-8Z-dGK"/>
+                <outlet property="resolutionStreak" destination="wck-i2-j38" id="PX5-Od-8XB"/>
+                <outlet property="resolutionTitle" destination="sYQ-WJ-H4I" id="2Xp-gA-IIV"/>
+            </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_travel_small_grey" width="36" height="35"/>
+    </resources>
 </document>

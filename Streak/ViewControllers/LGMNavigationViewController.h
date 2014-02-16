@@ -13,6 +13,6 @@
 @interface LGMNavigationViewController : UIViewController <LGMResolutionListViewControllerDelegate>
 
 - (void)showMenuAnimated:(BOOL)animated;
-- (void)presentResolutionListWithType:(LGMResolutionListType)type animated:(BOOL)animated;
+- (void)presentResolutionListWithFrequency:(LGMResolutionFrequency)frequency animated:(BOOL)animated;
 
 @end

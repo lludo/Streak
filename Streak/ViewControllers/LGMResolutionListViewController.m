@@ -8,22 +8,26 @@
 
 #import "LGMResolutionListViewController.h"
 #import "LGMResolutionCreateViewController.h"
+#import "LGMDocumentManager.h"
 #import "LGMResolutionCell.h"
+#import "LGMCategory.h"
 
 @interface LGMResolutionListViewController () <UITabBarDelegate, UITableViewDataSource>
 
-@property (nonatomic, assign) LGMResolutionListType type;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+
+@property (nonatomic, assign) LGMResolutionFrequency frequency;
+@property (nonatomic, strong) NSArray *resolutions;
 
 @end
 
 @implementation LGMResolutionListViewController
 
-- (id)initWithType:(LGMResolutionListType)aType delegate:(id<LGMResolutionListViewControllerDelegate>)aDelegate {
+- (id)initWithFrequency:(LGMResolutionFrequency)frequency delegate:(id<LGMResolutionListViewControllerDelegate>)delegate {
     self = [super init];
     if (self) {
-        _type = aType;
-        _delegate = aDelegate;
+        _frequency = frequency;
+        _delegate = delegate;
     }
     return self;
 }
@@ -40,7 +44,7 @@
     self.navigationItem.titleView = filterSegmentedControl;
     
     // Build the menu button
-    NSString *menuButtonTitle = [[LGMResolutionListViewController resolutionNameFromType:self.type] uppercaseString];
+    NSString *menuButtonTitle = [[LGMResolution frequencyNameFromFrequency:self.frequency] uppercaseString];
     UIBarButtonItem *menuButtonItem = [[UIBarButtonItem alloc] initWithTitle:menuButtonTitle style:UIBarButtonItemStyleBordered
                                                                       target:self action:@selector(showMenu:)];
     menuButtonItem.tintColor = [UIColor darkTextColor];
@@ -51,6 +55,13 @@
     UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithImage:resolutionAddImage style:UIBarButtonItemStylePlain
                                                                      target:self action:@selector(addResolution:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self reloadResolutions];
+    [self.tableView reloadData];
 }
 
 - (void)showMenu:(id)sender {
@@ -70,22 +81,36 @@
     //TODO to finish
 }
 
+- (void)reloadResolutions {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resolution"];
+    request.predicate = [NSPredicate predicateWithFormat:@"frequency == %i", self.frequency];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
+    NSManagedObjectContext *managedObjectContext = [LGMDocumentManager sharedDocument].managedObjectContext;
+    self.resolutions = [managedObjectContext executeFetchRequest:request error:NULL];
+}
+
+#pragma mark - UITableView datasource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [self.resolutions count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     LGMResolutionCell *cell = [tableView dequeueReusableCellWithIdentifier:kResolutionCellReusableIdentifier];
-        if (!cell) {
-            UINib *tableViewCellNib = [UINib nibWithNibName:NSStringFromClass([LGMResolutionCell class]) bundle:nil];
-            [self.tableView registerNib:tableViewCellNib forCellReuseIdentifier:kResolutionCellReusableIdentifier];
-            cell = [tableView dequeueReusableCellWithIdentifier:kResolutionCellReusableIdentifier];
-        }
-        
-    //TODO: configure cell here
-    cell.textLabel.text = @"Test";
+    if (!cell) {
+        UINib *tableViewCellNib = [UINib nibWithNibName:NSStringFromClass([LGMResolutionCell class]) bundle:nil];
+        [self.tableView registerNib:tableViewCellNib forCellReuseIdentifier:kResolutionCellReusableIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:kResolutionCellReusableIdentifier];
+    }
     
+    // Configure the cell
+    LGMResolution *resolution = [self.resolutions objectAtIndex:indexPath.row];
+    cell.categoryIcon.image = [resolution.category iconSmallPressed:NO];
+    cell.resolutionTitle.text = resolution.title;
+    cell.resolutionStreak.text = [resolution.streak stringValue]; //TODO: user number formater here
+    
+    /*
     [cell setAppearanceWithBlock:^{
         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
         
@@ -94,6 +119,7 @@
         
         cell.rightUtilityButtons = rightUtilityButtons;
     } force:NO];
+    */
     
     return cell;
 }
@@ -101,18 +127,9 @@
 #pragma mark - UITableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     //TODO: manage selection here
-}
-
-
-+ (NSString *)resolutionNameFromType:(LGMResolutionListType)type {
-    switch (type) {
-        case LGMResolutionListTypeDaily: return NSLocalizedString(@"Daily", nil); break;
-        case LGMResolutionListTypeWeekly: return NSLocalizedString(@"Weekly", nil); break;
-        case LGMResolutionListTypeMonthly: return NSLocalizedString(@"Monthly", nil); break;
-        default: return nil; break;
-    }
 }
 
 @end

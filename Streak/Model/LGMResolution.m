@@ -15,5 +15,15 @@
 @dynamic title;
 @dynamic category;
 @dynamic frequency;
+@dynamic streak;
+
++ (NSString *)frequencyNameFromFrequency:(LGMResolutionFrequency)frequency {
+    switch (frequency) {
+        case LGMResolutionFrequencyDaily: return NSLocalizedString(@"Daily", nil); break;
+        case LGMResolutionFrequencyWeekly: return NSLocalizedString(@"Weekly", nil); break;
+        case LGMResolutionFrequencyMonthly: return NSLocalizedString(@"Monthly", nil); break;
+        default: return nil; break;
+    }
+}
 
 @end
