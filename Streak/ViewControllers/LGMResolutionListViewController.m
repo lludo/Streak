@@ -11,12 +11,25 @@
 #import "LGMDocumentManager.h"
 #import "LGMResolutionCell.h"
 #import "LGMCategory.h"
+#import "UIColor+Hex.h"
 
-@interface LGMResolutionListViewController () <UITabBarDelegate, UITableViewDataSource>
+typedef NS_ENUM(NSUInteger, LGMResolutionListTodoAction) {
+    LGMResolutionListTodoActionTrash = 0,
+    LGMResolutionListTodoActionReminder,
+    LGMResolutionListTodoActionCheck
+};
+
+typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
+    LGMResolutionListDoneActionTrash = 0,
+    LGMResolutionListDoneActionUndo
+};
+
+@interface LGMResolutionListViewController () <UITabBarDelegate, UITableViewDataSource, SWTableViewCellDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @property (nonatomic, assign) LGMResolutionFrequency frequency;
+@property (nonatomic, assign) BOOL isDisplayingTodoResolutions;
 @property (nonatomic, strong) NSArray *resolutions;
 
 @end
@@ -28,6 +41,7 @@
     if (self) {
         _frequency = frequency;
         _delegate = delegate;
+        _isDisplayingTodoResolutions = YES;
     }
     return self;
 }
@@ -55,6 +69,8 @@
     UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithImage:resolutionAddImage style:UIBarButtonItemStylePlain
                                                                      target:self action:@selector(addResolution:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;
+    
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,8 +93,9 @@
 }
 
 - (void)valueChanged:(id)sender {
-    
-    //TODO to finish
+    UISegmentedControl *filterSegmentedControl = sender;
+    self.isDisplayingTodoResolutions = (filterSegmentedControl.selectedSegmentIndex == 0);
+    [self.tableView reloadData];
 }
 
 - (void)reloadResolutions {
@@ -104,22 +121,45 @@
         cell = [tableView dequeueReusableCellWithIdentifier:kResolutionCellReusableIdentifier];
     }
     
-    // Configure the cell
-    LGMResolution *resolution = [self.resolutions objectAtIndex:indexPath.row];
-    cell.categoryIcon.image = [resolution.category iconSmallPressed:NO];
-    cell.resolutionTitle.text = resolution.title;
-    cell.resolutionStreak.text = [resolution.streak stringValue]; //TODO: user number formater here
     
-    /*
+    // Configure the cell
+    
+    __weak LGMResolutionCell *weakCell = cell;
     [cell setAppearanceWithBlock:^{
+        weakCell.containingTableView = tableView;
+        
         NSMutableArray *rightUtilityButtons = [NSMutableArray new];
         
-        [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0] title:@"More"];
-        [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f] title:@"Delete"];
+        if (self.isDisplayingTodoResolutions) {
+            [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.251 alpha:1.000] icon:[UIImage imageNamed:@"picto_trash"]];
+            [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.251 alpha:1.000] icon:[UIImage imageNamed:@"picto_reminder"]];
+            [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.251 alpha:1.000] icon:[UIImage imageNamed:@"picto_check"]];
+        } else {
+            [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.251 alpha:1.000] icon:[UIImage imageNamed:@"picto_trash"]];
+            [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.251 alpha:1.000] icon:[UIImage imageNamed:@"picto_undo"]];
+        }
         
-        cell.rightUtilityButtons = rightUtilityButtons;
-    } force:NO];
-    */
+        weakCell.rightUtilityButtons = rightUtilityButtons;
+        
+        weakCell.resolutionTitle.textColor = [UIColor colorWithWhite:0.200 alpha:1.000];
+        weakCell.resolutionTitle.font = [UIFont streakRegularFontOfSize:15.0];
+        weakCell.resolutionStreak.font = [UIFont streakBoldFontOfSize:11.0];
+    } force:YES];
+    
+    [cell setCellHeight:cell.frame.size.height];
+    
+    LGMResolution *resolution = [self.resolutions objectAtIndex:indexPath.row];
+    cell.categoryIconImageView.image = [resolution.category iconSmallPressed:NO];
+    cell.resolutionTitle.text = resolution.title;
+    cell.resolutionStreak.text = [resolution.streak stringValue]; //TODO: use number formater here
+    
+    if (self.isDisplayingTodoResolutions) {
+        cell.streakIconImageView.image = [UIImage imageNamed:@"picto_small_streak"];
+        cell.resolutionStreak.textColor = [UIColor colorWithWhite:0.737 alpha:1.000];
+    } else {
+        cell.streakIconImageView.image = [UIImage imageNamed:@"picto_small_streak_selected"];
+        cell.resolutionStreak.textColor = [UIColor colorWithHexString:@"#fe5953" alpha:1.f];
+    }
     
     return cell;
 }
@@ -130,6 +170,62 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     //TODO: manage selection here
+}
+
+#pragma mark - SWTableViewCell delegate
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    if (self.isDisplayingTodoResolutions) {
+        switch (index) {
+            case LGMResolutionListTodoActionTrash: {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trash" message:@"//TODO: in developement"
+                                                               delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+                
+                break;
+            }
+            case LGMResolutionListTodoActionReminder: {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder" message:@"//TODO: in developement"
+                                                               delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+                
+                break;
+            }
+            case LGMResolutionListTodoActionCheck: {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Check" message:@"//TODO: in developement"
+                                                               delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+                
+                break;
+            }
+            default: break;
+        }
+    } else {
+        switch (index) {
+            case LGMResolutionListDoneActionTrash: {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trash" message:@"//TODO: in developement"
+                                                               delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+                
+                break;
+            }
+            case LGMResolutionListDoneActionUndo: {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Undo" message:@"//TODO: in developement"
+                                                               delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+                
+                break;
+            }
+            default: break;
+        }
+    }
+    
+    [cell hideUtilityButtonsAnimated:YES];
 }
 
 @end
