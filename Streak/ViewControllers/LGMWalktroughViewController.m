@@ -295,6 +295,11 @@
     LGMCategory *category = [self.categories objectAtIndex:indexPath.row];
     self.selectedCategory = (self.selectedCategory == category) ? nil : category;
     
+    // Animate the selected category in the center
+    if (self.selectedCategory) {
+        [collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+    }
+    
     [self.categoryCollectionView reloadData];
     [self refreshCategoryButtonsState];
 }
@@ -379,7 +384,7 @@
 }
 
 - (void)refreshFrequencyButtonsState {
-    NSUInteger frequencyScalar = [self.frequency integerValue];
+    NSUInteger frequencyScalar = (self.frequency) ? [self.frequency integerValue] : -1;
     switch (frequencyScalar) {
         case LGMResolutionFrequencyDaily: {
             self.resolutionFrequencyDailyButton.selected = YES;
