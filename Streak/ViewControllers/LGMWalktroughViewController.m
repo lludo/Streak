@@ -438,6 +438,83 @@
     // Dismiss the walkthrough
     
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    
+    // TODO *** demo remove this later ***
+    
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", @"fooddrink"];
+        
+        LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution" inManagedObjectContext:managedObjectContext];
+        resolution.identifier= [[NSUUID UUID] UUIDString];
+        resolution.title = @"No Mcdonald's or junk food";
+        resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
+        resolution.frequency = @(0);
+        resolution.streak = @(283);
+    }
+    
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", @"challenge"];
+        
+        LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution" inManagedObjectContext:managedObjectContext];
+        resolution.identifier= [[NSUUID UUID] UUIDString];
+        resolution.title = @"Take a pic on Everyday app";
+        resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
+        resolution.frequency = @(0);
+        resolution.streak = @(37);
+    }
+    
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", @"challenge"];
+        
+        LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution" inManagedObjectContext:managedObjectContext];
+        resolution.identifier= [[NSUUID UUID] UUIDString];
+        resolution.title = @"Reach my Nike Fuel goal";
+        resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
+        resolution.frequency = @(0);
+        resolution.streak = @(283);
+    }
+    
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", @"misc"];
+        
+        LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution" inManagedObjectContext:managedObjectContext];
+        resolution.identifier= [[NSUUID UUID] UUIDString];
+        resolution.title = @"Inbox zero";
+        resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
+        resolution.frequency = @(0);
+        resolution.streak = @(93);
+    }
+    
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", @"entertainment"];
+        
+        LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution" inManagedObjectContext:managedObjectContext];
+        resolution.identifier= [[NSUUID UUID] UUIDString];
+        resolution.title = @"Read few pages of my book";
+        resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
+        resolution.frequency = @(0);
+        resolution.streak = @(17);
+    }
+    
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", @"social"];
+        
+        LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution" inManagedObjectContext:managedObjectContext];
+        resolution.identifier= [[NSUUID UUID] UUIDString];
+        resolution.title = @"Call dad";
+        resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
+        resolution.frequency = @(0);
+        resolution.streak = @(17);
+    }
+    
+    [[LGMDocumentManager sharedDocument] save];
 }
 
 @end

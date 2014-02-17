@@ -140,6 +140,7 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
         }
         
         weakCell.rightUtilityButtons = rightUtilityButtons;
+        weakCell.delegate = self;
         
         weakCell.resolutionTitle.textColor = [UIColor colorWithWhite:0.200 alpha:1.000];
         weakCell.resolutionTitle.font = [UIFont streakRegularFontOfSize:15.0];
@@ -149,7 +150,7 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     [cell setCellHeight:cell.frame.size.height];
     
     LGMResolution *resolution = [self.resolutions objectAtIndex:indexPath.row];
-    cell.categoryIconImageView.image = [resolution.category iconSmallPressed:NO];
+    cell.categoryIconImageView.image = [resolution.category iconSmallPressed:!self.isDisplayingTodoResolutions];
     cell.resolutionTitle.text = resolution.title;
     cell.resolutionStreak.text = [resolution.streak stringValue]; //TODO: use number formater here
     

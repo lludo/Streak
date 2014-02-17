@@ -28,9 +28,15 @@
 }
 
 - (UIImage *)iconSize:(NSString *)size statePressed:(BOOL)isPressed {
-    NSString *pressed = (isPressed) ? @"_press" : @"";
-    NSString *iconName = [NSString stringWithFormat:@"icon_%@_%@_pink%@", self.identifier, size, pressed];
-    return [UIImage imageNamed:iconName];
+    if ([size isEqualToString:@"small"]) {
+        NSString *pressed = (isPressed) ? @"pink" : @"grey";
+        NSString *iconName = [NSString stringWithFormat:@"icon_%@_small_%@", self.identifier, pressed];
+        return [UIImage imageNamed:iconName];
+    } else {
+        NSString *pressed = (isPressed) ? @"_press" : @"";
+        NSString *iconName = [NSString stringWithFormat:@"icon_%@_%@_pink%@", self.identifier, size, pressed];
+        return [UIImage imageNamed:iconName];
+    }
 }
 
 @end
