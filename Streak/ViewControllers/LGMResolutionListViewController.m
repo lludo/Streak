@@ -28,9 +28,18 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
+@property (nonatomic, strong) IBOutlet UIView *emptyListTodoView;
+@property (nonatomic, strong) IBOutlet UILabel *emptyListTodoTitleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *emptyListTodoSubtitleLabel;
+@property (nonatomic, strong) IBOutlet UIButton *emptyListTodoCreateButton;
+
+@property (nonatomic, strong) IBOutlet UIView *emptyListDoneView;
+@property (nonatomic, strong) IBOutlet UILabel *emptyListDoneTitleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *emptyListDoneSubtitleLabel;
+
 @property (nonatomic, assign) LGMResolutionFrequency frequency;
 @property (nonatomic, assign) BOOL isDisplayingTodoResolutions;
-@property (nonatomic, strong) NSArray *resolutions;
+@property (nonatomic, strong) NSMutableArray *resolutions;
 
 @end
 
@@ -50,6 +59,7 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     [super viewDidLoad];
     
     // Build the segmented control for filter
+    
     NSArray *items = @[[UIImage imageNamed:@"switch-mask-all"], [UIImage imageNamed:@"switch-mask-done"]];
     UISegmentedControl *filterSegmentedControl = [[UISegmentedControl alloc] initWithItems:items];
     [filterSegmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -57,18 +67,32 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     filterSegmentedControl.selectedSegmentIndex = 0;
     self.navigationItem.titleView = filterSegmentedControl;
     
+    
     // Build the menu button
+    
     NSString *menuButtonTitle = [[LGMResolution frequencyNameFromFrequency:self.frequency] uppercaseString];
     UIBarButtonItem *menuButtonItem = [[UIBarButtonItem alloc] initWithTitle:menuButtonTitle style:UIBarButtonItemStyleBordered
                                                                       target:self action:@selector(showMenu:)];
     menuButtonItem.tintColor = [UIColor darkTextColor];
     self.navigationItem.leftBarButtonItem = menuButtonItem;
     
+    
     // Add resolution button
+    
     UIImage *resolutionAddImage = [[UIImage imageNamed:@"resolution-button-add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithImage:resolutionAddImage style:UIBarButtonItemStylePlain
                                                                      target:self action:@selector(addResolution:)];
     self.navigationItem.rightBarButtonItem = addButtonItem;
+    
+    
+    // Customisation
+    
+    self.emptyListTodoTitleLabel.font = [UIFont streakLightFontOfSize:21.0];
+    self.emptyListTodoSubtitleLabel.font = [UIFont streakRegularFontOfSize:15.0];
+    self.emptyListTodoCreateButton.titleLabel.font = [UIFont streakRegularFontOfSize:15.0];
+    
+    self.emptyListDoneTitleLabel.font = [UIFont streakLightFontOfSize:21.0];
+    self.emptyListDoneSubtitleLabel.font = [UIFont streakRegularFontOfSize:15.0];
     
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
@@ -78,6 +102,7 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     
     [self reloadResolutions];
     [self.tableView reloadData];
+    [self displayEmpltyViewIfNeeded];
 }
 
 - (void)showMenu:(id)sender {
@@ -86,7 +111,7 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     }
 }
 
-- (void)addResolution:(id)sender {
+- (IBAction)addResolution:(id)sender {
     LGMResolutionCreateViewController *createViewController = [[LGMResolutionCreateViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:createViewController];
     [self presentViewController:navigationController animated:YES completion:NULL];
@@ -95,15 +120,33 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
 - (void)valueChanged:(id)sender {
     UISegmentedControl *filterSegmentedControl = sender;
     self.isDisplayingTodoResolutions = (filterSegmentedControl.selectedSegmentIndex == 0);
+    [self reloadResolutions];
     [self.tableView reloadData];
+    [self displayEmpltyViewIfNeeded];
 }
 
 - (void)reloadResolutions {
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
+    NSDate *todayDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+    
+    NSString *predicateFormat = (self.isDisplayingTodoResolutions) ? @"frequency == %i AND (lastCheckDate == nil OR lastCheckDate != %@)" : @"frequency == %i AND lastCheckDate == %@";
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Resolution"];
-    request.predicate = [NSPredicate predicateWithFormat:@"frequency == %i", self.frequency];
+    request.predicate = [NSPredicate predicateWithFormat:predicateFormat, self.frequency, todayDate];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
     NSManagedObjectContext *managedObjectContext = [LGMDocumentManager sharedDocument].managedObjectContext;
-    self.resolutions = [managedObjectContext executeFetchRequest:request error:NULL];
+    self.resolutions = [[managedObjectContext executeFetchRequest:request error:NULL] mutableCopy];
+}
+
+- (void)displayEmpltyViewIfNeeded {
+    [self.emptyListTodoView removeFromSuperview];
+    [self.emptyListDoneView removeFromSuperview];
+    
+    if ([self.resolutions count] == 0) {
+        UIView *emptyListView = (self.isDisplayingTodoResolutions) ? self.emptyListTodoView : self.emptyListDoneView;
+        [self.view addSubview:emptyListView];
+    }
 }
 
 #pragma mark - UITableView datasource
@@ -152,7 +195,7 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     LGMResolution *resolution = [self.resolutions objectAtIndex:indexPath.row];
     cell.categoryIconImageView.image = [resolution.category iconSmallPressed:!self.isDisplayingTodoResolutions];
     cell.resolutionTitle.text = resolution.title;
-    cell.resolutionStreak.text = [resolution.streak stringValue]; //TODO: use number formater here
+    cell.resolutionStreak.text = [resolution.streakCount stringValue]; //TODO: use number formater here
     
     if (self.isDisplayingTodoResolutions) {
         cell.streakIconImageView.image = [UIImage imageNamed:@"picto_small_streak"];
@@ -176,9 +219,15 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
 #pragma mark - SWTableViewCell delegate
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    
+    // Retrieve the cell and the resolution
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+    LGMResolution *resolution = [self.resolutions objectAtIndex:cellIndexPath.row];
+    
     if (self.isDisplayingTodoResolutions) {
         switch (index) {
             case LGMResolutionListTodoActionTrash: {
+                [cell hideUtilityButtonsAnimated:YES];
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trash" message:@"//TODO: in developement"
                                                                delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -187,6 +236,7 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
                 break;
             }
             case LGMResolutionListTodoActionReminder: {
+                [cell hideUtilityButtonsAnimated:YES];
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder" message:@"//TODO: in developement"
                                                                delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -196,9 +246,24 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
             }
             case LGMResolutionListTodoActionCheck: {
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Check" message:@"//TODO: in developement"
-                                                               delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                [alert show];
+                // Check the resolution
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+                NSDate *todayDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+                
+                resolution.lastCheckDate = todayDate;
+                resolution.streakCount = @([resolution.streakCount integerValue] + 1);
+                [[LGMDocumentManager sharedDocument] save];
+                
+                // Set pressed state
+                [cell.rightUtilityButtons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
+                    [button setBackgroundColor:[UIColor colorWithHexString:@"#fe5953" alpha:1.f]];
+                    button.enabled = (index == idx);
+                }];
+                
+                // Remove it from the list
+                [self.resolutions removeObjectAtIndex:cellIndexPath.row];
+                [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationRight];
+                [self performSelector:@selector(displayEmpltyViewIfNeeded) withObject:nil afterDelay:0.3];
                 
                 break;
             }
@@ -207,6 +272,7 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     } else {
         switch (index) {
             case LGMResolutionListDoneActionTrash: {
+                [cell hideUtilityButtonsAnimated:YES];
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trash" message:@"//TODO: in developement"
                                                                delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -216,17 +282,27 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
             }
             case LGMResolutionListDoneActionUndo: {
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Undo" message:@"//TODO: in developement"
-                                                               delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                [alert show];
+                // Unheck the resolution
+                resolution.lastCheckDate = nil;
+                resolution.streakCount = @([resolution.streakCount integerValue] - 1);
+                [[LGMDocumentManager sharedDocument] save];
+                
+                // Set pressed state
+                [cell.rightUtilityButtons enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
+                    [button setBackgroundColor:[UIColor colorWithHexString:@"#fe5953" alpha:1.f]];
+                    button.enabled = (index == idx);
+                }];
+                
+                // Remove it from the list
+                [self.resolutions removeObjectAtIndex:cellIndexPath.row];
+                [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                [self performSelector:@selector(displayEmpltyViewIfNeeded) withObject:nil afterDelay:0.3];
                 
                 break;
             }
             default: break;
         }
     }
-    
-    [cell hideUtilityButtonsAnimated:YES];
 }
 
 @end

@@ -15,7 +15,8 @@
 @dynamic title;
 @dynamic category;
 @dynamic frequency;
-@dynamic streak;
+@dynamic streakCount;
+@dynamic lastCheckDate;
 
 + (NSString *)frequencyNameFromFrequency:(LGMResolutionFrequency)frequency {
     switch (frequency) {

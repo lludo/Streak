@@ -13,9 +13,10 @@
 @interface LGMResolutionListViewController : UIViewController
 
 @property (nonatomic, strong) id<LGMResolutionListViewControllerDelegate> delegate;
-
 @property (nonatomic, assign, readonly) LGMResolutionFrequency frequency;
 
 - (id)initWithFrequency:(LGMResolutionFrequency)frequency delegate:(id<LGMResolutionListViewControllerDelegate>)delegate;
+
+- (IBAction)addResolution:(id)sender;
 
 @end

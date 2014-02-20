@@ -23,7 +23,8 @@ typedef NS_ENUM(NSUInteger, LGMResolutionFrequency) {
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) LGMCategory *category;
 @property (nonatomic, strong) NSNumber *frequency;
-@property (nonatomic, strong) NSNumber *streak;
+@property (nonatomic, strong) NSNumber *streakCount;
+@property (nonatomic, strong) NSDate *lastCheckDate;
 
 + (NSString *)frequencyNameFromFrequency:(LGMResolutionFrequency)frequency;
 

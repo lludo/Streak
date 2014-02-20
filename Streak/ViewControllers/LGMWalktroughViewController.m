@@ -430,7 +430,7 @@
     resolution.title = self.resolutionName;
     resolution.category = self.selectedCategory;
     resolution.frequency = self.frequency;
-    resolution.streak = @(0);
+    resolution.streakCount = @(0);
     
     [[LGMDocumentManager sharedDocument] save];
     
@@ -451,7 +451,7 @@
         resolution.title = @"No Mcdonald's or junk food";
         resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
         resolution.frequency = @(0);
-        resolution.streak = @(283);
+        resolution.streakCount = @(283);
     }
     
     {
@@ -463,7 +463,7 @@
         resolution.title = @"Take a pic on Everyday app";
         resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
         resolution.frequency = @(0);
-        resolution.streak = @(37);
+        resolution.streakCount = @(37);
     }
     
     {
@@ -475,7 +475,7 @@
         resolution.title = @"Reach my Nike Fuel goal";
         resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
         resolution.frequency = @(0);
-        resolution.streak = @(283);
+        resolution.streakCount = @(283);
     }
     
     {
@@ -487,7 +487,7 @@
         resolution.title = @"Inbox zero";
         resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
         resolution.frequency = @(0);
-        resolution.streak = @(93);
+        resolution.streakCount = @(93);
     }
     
     {
@@ -499,7 +499,7 @@
         resolution.title = @"Read few pages of my book";
         resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
         resolution.frequency = @(0);
-        resolution.streak = @(17);
+        resolution.streakCount = @(17);
     }
     
     {
@@ -511,7 +511,50 @@
         resolution.title = @"Call dad";
         resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
         resolution.frequency = @(0);
-        resolution.streak = @(17);
+        resolution.streakCount = @(17);
+    }
+    
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    NSDate *todayDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+    
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", @"sport"];
+        
+        LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution" inManagedObjectContext:managedObjectContext];
+        resolution.identifier= [[NSUUID UUID] UUIDString];
+        resolution.title = @"10 minutes run";
+        resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
+        resolution.frequency = @(0);
+        resolution.streakCount = @(172);
+        resolution.lastCheckDate = todayDate;
+    }
+    
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", @"misc"];
+        
+        LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution" inManagedObjectContext:managedObjectContext];
+        resolution.identifier= [[NSUUID UUID] UUIDString];
+        resolution.title = @"Make a good deed";
+        resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
+        resolution.frequency = @(0);
+        resolution.streakCount = @(172);
+        resolution.lastCheckDate = todayDate;
+    }
+    
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+        request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", @"fooddrink"];
+        
+        LGMResolution *resolution = [NSEntityDescription insertNewObjectForEntityForName:@"Resolution" inManagedObjectContext:managedObjectContext];
+        resolution.identifier= [[NSUUID UUID] UUIDString];
+        resolution.title = @"5 fruits and vegetables";
+        resolution.category = [[managedObjectContext executeFetchRequest:request error:NULL] lastObject];
+        resolution.frequency = @(0);
+        resolution.streakCount = @(172);
+        resolution.lastCheckDate = todayDate;
     }
     
     [[LGMDocumentManager sharedDocument] save];
