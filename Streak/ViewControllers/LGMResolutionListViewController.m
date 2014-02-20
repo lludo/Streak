@@ -71,9 +71,16 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     // Build the menu button
     
     NSString *menuButtonTitle = [[LGMResolution frequencyNameFromFrequency:self.frequency] uppercaseString];
-    UIBarButtonItem *menuButtonItem = [[UIBarButtonItem alloc] initWithTitle:menuButtonTitle style:UIBarButtonItemStyleBordered
-                                                                      target:self action:@selector(showMenu:)];
-    menuButtonItem.tintColor = [UIColor darkTextColor];
+    
+    UIButton *menuButtonButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [menuButtonButton setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
+    [menuButtonButton setTitleColor:[UIColor colorWithWhite:0.696 alpha:1.000] forState:UIControlStateHighlighted];
+    menuButtonButton.titleLabel.font = [UIFont streakBoldFontOfSize:12.0];
+    [menuButtonButton setTitle:menuButtonTitle forState:UIControlStateNormal];
+    [menuButtonButton addTarget:self action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
+    [menuButtonButton sizeToFit];
+    
+    UIBarButtonItem *menuButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuButtonButton];
     self.navigationItem.leftBarButtonItem = menuButtonItem;
     
     

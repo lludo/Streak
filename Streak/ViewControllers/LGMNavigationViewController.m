@@ -13,6 +13,20 @@
 
 @interface LGMNavigationViewController ()
 
+@property (nonatomic, strong) IBOutlet UILabel *listTitle;
+
+@property (nonatomic, strong) IBOutlet UIButton *dailyButton;
+@property (nonatomic, strong) IBOutlet UILabel *dailyResolutionCount;
+@property (nonatomic, strong) IBOutlet UIImageView *dailyResolutionCountImageView;
+
+@property (nonatomic, strong) IBOutlet UIButton *weeklyButton;
+@property (nonatomic, strong) IBOutlet UILabel *weeklyResolutionCount;
+@property (nonatomic, strong) IBOutlet UIImageView *weeklyResolutionCountImageView;
+
+@property (nonatomic, strong) IBOutlet UIButton *monthlyButton;
+@property (nonatomic, strong) IBOutlet UILabel *monthlyResolutionCount;
+@property (nonatomic, strong) IBOutlet UIImageView *monthlyResolutionCountImageView;
+
 @property (nonatomic, strong) NSArray *resolutionViewControllerList;
 
 @end
@@ -38,7 +52,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.listTitle.font = [UIFont streakLightFontOfSize:30.0];
+    
+    self.dailyButton.titleLabel.font = [UIFont streakLightFontOfSize:20.0];
+    self.dailyResolutionCount.font = [UIFont streakLightFontOfSize:12.0];
+    
+    self.weeklyButton.titleLabel.font = [UIFont streakLightFontOfSize:20.0];
+    self.weeklyResolutionCount.font = [UIFont streakLightFontOfSize:12.0];
+    
+    self.monthlyButton.titleLabel.font = [UIFont streakLightFontOfSize:20.0];
+    self.monthlyResolutionCount.font = [UIFont streakLightFontOfSize:12.0];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    //self.dailyResolutionCount;
+    //self.dailyResolutionCountImageView;
+    
+    //self.weeklyResolutionCount;
+    //self.weeklyResolutionCountImageView;
+    
+    self.monthlyResolutionCount.hidden = YES;
+    self.monthlyResolutionCountImageView.hidden = YES;;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -54,8 +91,16 @@
     NSError *error;
     NSUInteger count = [managedObjectContext countForFetchRequest:request error:&error];
     if (count == 0) {
-        LGMWalktroughViewController *walktroughViewController = [[LGMWalktroughViewController alloc] init];
-        [self presentViewController:walktroughViewController animated:NO completion:NULL];
+        
+        //TODO: demo only, to remove
+        UIViewController *viewController = [self.resolutionViewControllerList objectAtIndex:0];
+        [self presentViewController:viewController animated:NO completion:^{
+            LGMWalktroughViewController *walktroughViewController = [[LGMWalktroughViewController alloc] init];
+            [viewController presentViewController:walktroughViewController animated:NO completion:NULL];
+        }];
+        
+        //LGMWalktroughViewController *walktroughViewController = [[LGMWalktroughViewController alloc] init];
+        //[self presentViewController:walktroughViewController animated:NO completion:NULL];
     }
 }
 
