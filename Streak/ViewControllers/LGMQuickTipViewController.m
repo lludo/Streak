@@ -41,7 +41,7 @@
     self.contentView.transform = CGAffineTransformMakeTranslation(0, -self.contentView.frame.origin.y - self.contentView.frame.size.height);
     
     [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.view.backgroundColor = [UIColor colorWithWhite:0.878 alpha:0.800];
+        self.view.backgroundColor = [UIColor colorWithWhite:0.878 alpha:0.900];
     } completion:NULL];
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.contentView.transform = CGAffineTransformIdentity;
