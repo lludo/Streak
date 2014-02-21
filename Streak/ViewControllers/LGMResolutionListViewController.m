@@ -8,8 +8,11 @@
 
 #import "LGMResolutionListViewController.h"
 #import "LGMResolutionCreateViewController.h"
+#import "LGMQuickTipViewControllerDelegate.h"
+#import "LGMQuickTipViewController.h"
 #import "LGMDocumentManager.h"
 #import "LGMResolutionCell.h"
+#import "LGMAppDelegate.h"
 #import "LGMCategory.h"
 #import "UIColor+Hex.h"
 
@@ -24,7 +27,7 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     LGMResolutionListDoneActionUndo
 };
 
-@interface LGMResolutionListViewController () <UITabBarDelegate, UITableViewDataSource, SWTableViewCellDelegate>
+@interface LGMResolutionListViewController () <UITabBarDelegate, UITableViewDataSource, SWTableViewCellDelegate, LGMQuickTipViewControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
@@ -112,6 +115,23 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
     [self displayEmpltyViewIfNeeded];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    BOOL hasSeenQuickTip = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasSeenQuickTip"];
+    if (!hasSeenQuickTip) {
+        LGMQuickTipViewController *quickTipViewController = [[LGMQuickTipViewController alloc] initWithDelegate:self];
+    
+        [self.navigationController addChildViewController:quickTipViewController];
+        quickTipViewController.view.frame = self.navigationController.view.frame;
+        [self.navigationController.view addSubview:quickTipViewController.view];
+        [quickTipViewController didMoveToParentViewController:self.navigationController];
+    
+        [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"hasSeenQuickTip"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
 - (void)showMenu:(id)sender {
     if (_delegate && [_delegate respondsToSelector:@selector(showMenuAnimated:)]) {
         [_delegate showMenuAnimated:YES];
@@ -154,6 +174,14 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
         UIView *emptyListView = (self.isDisplayingTodoResolutions) ? self.emptyListTodoView : self.emptyListDoneView;
         [self.view addSubview:emptyListView];
     }
+}
+
+#pragma mark - LGMQuickTipViewController delegate
+
+- (void)dismissQuickTip:(LGMQuickTipViewController *)quickTip {
+    [quickTip willMoveToParentViewController:nil];
+    [quickTip.view removeFromSuperview];
+    [quickTip removeFromParentViewController];
 }
 
 #pragma mark - UITableView datasource
@@ -211,6 +239,15 @@ typedef NS_ENUM(NSUInteger, LGMResolutionListDoneAction) {
         cell.streakIconImageView.image = [UIImage imageNamed:@"picto_small_streak_selected"];
         cell.resolutionStreak.textColor = [UIColor colorWithHexString:@"#fe5953" alpha:1.f];
     }
+    
+    // Position on the right
+    [cell.resolutionStreak sizeToFit];
+    CGFloat resolutionStreakOriginX = cell.frame.size.width - cell.resolutionStreak.frame.size.width - 14;
+    [cell.resolutionStreak setFrame:CGRectMake(resolutionStreakOriginX, cell.resolutionStreak.frame.origin.y,
+                                               cell.resolutionStreak.frame.size.width, cell.resolutionStreak.frame.size.height)];
+    CGFloat streakIconOriginX = resolutionStreakOriginX - 14;
+    [cell.streakIconImageView setFrame:CGRectMake(streakIconOriginX, cell.streakIconImageView.frame.origin.y,
+                                                  cell.streakIconImageView.frame.size.width, cell.streakIconImageView.frame.size.height)];
     
     return cell;
 }

@@ -16,6 +16,8 @@
 		825CDECF1871EB5900BA8F37 /* LGMResolutionCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDECD1871EB5900BA8F37 /* LGMResolutionCreateViewController.xib */; };
 		825CDED31871F09300BA8F37 /* LGMWalktroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825CDED11871F09300BA8F37 /* LGMWalktroughViewController.m */; };
 		825CDED41871F09300BA8F37 /* LGMWalktroughViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825CDED21871F09300BA8F37 /* LGMWalktroughViewController.xib */; };
+		8264C2B118B6915C004F3636 /* LGMQuickTipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8264C2AF18B6915C004F3636 /* LGMQuickTipViewController.m */; };
+		8264C2B218B6915C004F3636 /* LGMQuickTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8264C2B018B6915C004F3636 /* LGMQuickTipViewController.xib */; };
 		8288B587184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
 		8288B588184EF11800491AED /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B584184EF11800491AED /* ProximaNova-Bold.otf */; };
 		8288B589184EF11800491AED /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8288B585184EF11800491AED /* ProximaNova-Light.otf */; };
@@ -92,6 +94,10 @@
 		825CDED01871F09300BA8F37 /* LGMWalktroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMWalktroughViewController.h; sourceTree = "<group>"; };
 		825CDED11871F09300BA8F37 /* LGMWalktroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMWalktroughViewController.m; sourceTree = "<group>"; };
 		825CDED21871F09300BA8F37 /* LGMWalktroughViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMWalktroughViewController.xib; sourceTree = "<group>"; };
+		8264C2AE18B6915C004F3636 /* LGMQuickTipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMQuickTipViewController.h; sourceTree = "<group>"; };
+		8264C2AF18B6915C004F3636 /* LGMQuickTipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGMQuickTipViewController.m; sourceTree = "<group>"; };
+		8264C2B018B6915C004F3636 /* LGMQuickTipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LGMQuickTipViewController.xib; sourceTree = "<group>"; };
+		8264C2B318B6CACE004F3636 /* LGMQuickTipViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGMQuickTipViewControllerDelegate.h; sourceTree = "<group>"; };
 		8288B584184EF11800491AED /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
 		8288B585184EF11800491AED /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		8288B586184EF11800491AED /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
@@ -284,6 +290,10 @@
 				8288B58D184EF39200491AED /* LGMResolutionListViewController.h */,
 				8288B58E184EF39200491AED /* LGMResolutionListViewController.m */,
 				8288B58F184EF39200491AED /* LGMResolutionListViewController.xib */,
+				8264C2B318B6CACE004F3636 /* LGMQuickTipViewControllerDelegate.h */,
+				8264C2AE18B6915C004F3636 /* LGMQuickTipViewController.h */,
+				8264C2AF18B6915C004F3636 /* LGMQuickTipViewController.m */,
+				8264C2B018B6915C004F3636 /* LGMQuickTipViewController.xib */,
 				825CDECB1871EB5900BA8F37 /* LGMResolutionCreateViewController.h */,
 				825CDECC1871EB5900BA8F37 /* LGMResolutionCreateViewController.m */,
 				825CDECD1871EB5900BA8F37 /* LGMResolutionCreateViewController.xib */,
@@ -410,6 +420,7 @@
 				825CDECF1871EB5900BA8F37 /* LGMResolutionCreateViewController.xib in Resources */,
 				8288B592184EF39200491AED /* LGMResolutionListViewController.xib in Resources */,
 				829E7C51184ECF16003C23CD /* LGMNavigationViewController.xib in Resources */,
+				8264C2B218B6915C004F3636 /* LGMQuickTipViewController.xib in Resources */,
 				829E7C44184ECED4003C23CD /* InfoPlist.strings in Resources */,
 				8288B589184EF11800491AED /* ProximaNova-Light.otf in Resources */,
 				8288B58B184EF11800491AED /* ProximaNova-Regular.otf in Resources */,
@@ -494,6 +505,7 @@
 				829E7C4F184ECF16003C23CD /* LGMNavigationViewController.m in Sources */,
 				829F0B2118B049B7006B925C /* LGMResolution.m in Sources */,
 				8288B590184EF39200491AED /* LGMResolutionListViewController.m in Sources */,
+				8264C2B118B6915C004F3636 /* LGMQuickTipViewController.m in Sources */,
 				829F0B0D18B04527006B925C /* LGMDocumentManager.m in Sources */,
 				829E7C11184EC95F003C23CD /* LGMAppDelegate.m in Sources */,
 			);

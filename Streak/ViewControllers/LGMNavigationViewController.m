@@ -71,8 +71,8 @@
     //self.dailyResolutionCount;
     //self.dailyResolutionCountImageView;
     
-    //self.weeklyResolutionCount;
-    //self.weeklyResolutionCountImageView;
+    self.weeklyResolutionCount.hidden = YES;
+    self.weeklyResolutionCountImageView.hidden = YES;
     
     self.monthlyResolutionCount.hidden = YES;
     self.monthlyResolutionCountImageView.hidden = YES;;
